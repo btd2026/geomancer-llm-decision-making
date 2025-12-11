@@ -1,0 +1,193 @@
+{
+  "project_name": "ManyLatents Pipeline Recommendation",
+  "description": "Mining papers to extract algorithm-dataset pairs for building ML-based pipeline recommendation system",
+
+  "research_focus": {
+    "primary_domain": "single-cell genomics",
+    "secondary_domains": ["transcriptomics", "multi-omics", "spatial transcriptomics"],
+    "computational_focus": "dimensionality reduction, manifold learning, trajectory inference, and RNA velocity analysis"
+  },
+
+  "target_algorithms": [
+    "PCA (Principal Component Analysis)",
+    "t-SNE (t-Distributed Stochastic Neighbor Embedding)",
+    "UMAP (Uniform Manifold Approximation and Projection)",
+    "PHATE (Potential of Heat-diffusion for Affinity-based Transition Embedding)",
+    "Autoencoders (VAE, scVI, DCA)",
+    "Diffusion Maps",
+    "ICA (Independent Component Analysis)",
+    "NMF (Non-negative Matrix Factorization)",
+    "ZIFA",
+    "scVI",
+    "scGAN",
+    "RNA Velocity",
+    "scVelo",
+    "velocyto",
+    "Monocle (pseudotime)",
+    "Slingshot",
+    "PAGA (Partition-based Graph Abstraction)",
+    "Palantir",
+    "Wishbone",
+    "STREAM",
+    "CellRank",
+    "WOT (Waddington-OT)"
+  ],
+
+  "target_frameworks": [
+    "Scanpy",
+    "Seurat",
+    "SingleCellExperiment",
+    "AnnData",
+    "Monocle",
+    "Cell Ranger",
+    "scater",
+    "pagoda2",
+    "scVelo",
+    "velocyto",
+    "CellRank",
+    "dynverse",
+    "STREAM",
+    "Palantir"
+  ],
+
+  "search_criteria": {
+    "required_keywords_any": [
+      "single-cell RNA-seq",
+      "scRNA-seq",
+      "single cell transcriptomics",
+      "10X Genomics",
+      "Drop-seq",
+      "Smart-seq",
+      "Smart-seq2",
+      "single-cell sequencing"
+    ],
+
+    "required_keywords_all_from_one_category": {
+      "dimensionality_reduction": [
+        "dimensionality reduction",
+        "PCA",
+        "t-SNE",
+        "UMAP",
+        "PHATE",
+        "manifold learning",
+        "embedding",
+        "latent representation",
+        "autoencoder"
+      ],
+      "trajectory_analysis": [
+        "pseudotime",
+        "pseudo-time",
+        "RNA velocity",
+        "trajectory inference",
+        "lineage tracing",
+        "developmental trajectory",
+        "cell trajectory",
+        "temporal ordering",
+        "differentiation dynamics",
+        "velocity field"
+      ],
+      "or_data_availability": [
+        "dataset available",
+        "code available",
+        "github",
+        "data repository",
+        "GEO accession",
+        "ArrayExpress",
+        "SRA"
+      ]
+    },
+
+    "exclude_keywords": [
+      "review only",
+      "opinion piece",
+      "editorial",
+      "no data"
+    ],
+
+    "date_range": {
+      "start": "2020-01-01",
+      "end": "2025-12-31",
+      "rationale": "Expanded to 2020+ to capture more papers with GEO datasets for training data"
+    },
+
+    "pubmed_mesh_terms": [
+      "Single-Cell Analysis",
+      "RNA-Seq",
+      "Gene Expression Profiling",
+      "Computational Biology",
+      "Algorithms",
+      "Machine Learning",
+      "Cell Differentiation",
+      "Cell Lineage",
+      "Gene Expression Regulation, Developmental"
+    ]
+  },
+
+  "data_requirements": {
+    "must_have": [
+      "Methods section describing dimensionality reduction or trajectory analysis",
+      "Dataset characteristics (cell count, gene count, tissue type)",
+      "Algorithm parameters or default pipeline used"
+    ],
+    "nice_to_have": [
+      "Benchmark comparisons between algorithms",
+      "Performance metrics reported",
+      "Code/scripts available",
+      "Processed data available",
+      "Supplementary materials with detailed protocols"
+    ]
+  },
+
+  "extraction_targets": {
+    "metadata": [
+      "Paper title, authors, publication date",
+      "Journal and DOI",
+      "Dataset source and accession numbers",
+      "Sample characteristics (organism, tissue, condition)"
+    ],
+    "methods": [
+      "Preprocessing steps (normalization, filtering)",
+      "Dimensionality reduction algorithm(s) used",
+      "Trajectory inference or RNA velocity methods",
+      "Pseudotime calculation approaches",
+      "Algorithm parameters and settings",
+      "Sequential pipeline order"
+    ],
+    "results": [
+      "Number of cells and genes",
+      "Identified cell types/clusters",
+      "Lineage relationships or developmental trajectories",
+      "Pseudotime orderings or velocity fields",
+      "Performance metrics if reported",
+      "Computational requirements"
+    ],
+    "resources": [
+      "GitHub repositories",
+      "Data availability statements",
+      "GEO/SRA accession numbers",
+      "Docker/Singularity containers"
+    ]
+  },
+
+  "downstream_use": {
+    "purpose": "Train ML model to recommend optimal dimensionality reduction pipelines",
+    "manylatents_integration": [
+      "Re-run discovered algorithms through ManyLatents framework",
+      "Generate geometric metrics (TSA, LID, PR, manifold quality)",
+      "Build training dataset: (dataset_features, algorithm_sequence, geometric_metrics)"
+    ],
+    "evaluation": [
+      "Compare ManyLatents metrics with paper-reported results",
+      "Validate algorithm selections against published best practices",
+      "Build recommendation model for new datasets"
+    ]
+  },
+
+  "quality_filters": {
+    "minimum_citations": 5,
+    "peer_reviewed": true,
+    "full_text_available": "preferred",
+    "preprints_acceptable": true,
+    "preprint_sources": ["bioRxiv", "arXiv q-bio"]
+  }
+}

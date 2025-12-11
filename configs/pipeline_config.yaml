@@ -1,0 +1,250 @@
+# CELLxGENE-to-Papers Database Pipeline Configuration
+# This configuration file controls the behavior of the database building pipeline
+# Author: Claude Code
+# Created: 2025-11-04
+
+# ============================================================================
+# API Configuration
+# ============================================================================
+
+api:
+  # NCBI E-utilities configuration
+  ncbi:
+    base_url: "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/"
+    email: "btd8@yale.edu"
+    tool: "cellxgene_pipeline"
+    api_key: null  # Optional: Add NCBI API key for higher rate limits
+
+  # PubMed Central (PMC) configuration
+  pmc:
+    base_url: "https://www.ncbi.nlm.nih.gov/pmc/utils/oa/"
+    full_text_enabled: true  # Whether to fetch full text from PMC
+
+  # Claude API configuration (for LLM descriptions)
+  claude:
+    api_key: null  # REQUIRED for LLM operations: Set via env var ANTHROPIC_API_KEY
+    model: "claude-3-haiku-20240307"  # Cost-efficient model for descriptions
+    max_tokens: 500
+    temperature: 0.3  # Lower temperature for consistent descriptions
+
+# ============================================================================
+# Rate Limiting
+# ============================================================================
+
+rate_limits:
+  # NCBI E-utilities rate limits (requests per second)
+  ncbi_without_api_key: 3  # Max 3 requests/second without API key
+  ncbi_with_api_key: 10    # Max 10 requests/second with API key
+
+  # Retry configuration for failed API calls
+  max_retries: 3
+  initial_retry_delay: 1.0  # seconds
+  max_retry_delay: 60.0     # seconds
+  exponential_backoff_factor: 2.0
+
+  # Timeout configuration
+  request_timeout: 30  # seconds
+
+  # Rate limit buffer (to avoid hitting exact limit)
+  rate_limit_buffer: 0.9  # Use 90% of allowed rate
+
+# ============================================================================
+# Database Configuration
+# ============================================================================
+
+database:
+  # Database file path (relative to project root)
+  path: "data/papers/metadata/papers.db"
+
+  # Batch processing configuration
+  batch_commit_size: 100  # Commit every N records
+
+  # Connection settings
+  timeout: 30  # seconds
+  check_same_thread: false
+
+# ============================================================================
+# Input Files
+# ============================================================================
+
+input:
+  # CELLxGENE metadata CSV
+  cellxgene_metadata: "cellxgene_full_metadata.csv"
+
+  # Expected columns in CSV
+  expected_columns:
+    - "collection_id"
+    - "collection_name"
+    - "collection_doi"
+    - "dataset_id"
+    - "dataset_title"
+    - "dataset_version_id"
+    - "dataset_h5ad_path"
+    - "citation"
+
+# ============================================================================
+# Data Processing
+# ============================================================================
+
+processing:
+  # How to handle papers with multiple collections
+  multiple_collections:
+    # Store first collection_id as primary
+    primary_strategy: "first"  # Options: first, last, most_recent
+    # Store all collection IDs in JSON array
+    store_all: true
+
+  # How to handle missing DOIs
+  missing_doi:
+    # Try to find DOI from PubMed if missing from CSV
+    search_pubmed: true
+    # Skip papers without DOI
+    skip_if_not_found: false
+
+  # Metadata field handling
+  metadata:
+    # Leave organism/tissue/assay NULL if not in CSV
+    require_complete: false
+    # Extract from dataset title if available
+    parse_from_title: false
+
+  # Existing papers handling
+  existing_papers:
+    # Merge if DOI matches
+    merge_strategy: "update"  # Options: update, skip, replace
+    # Update source field to "both" if merging
+    update_source: true
+
+# ============================================================================
+# Logging Configuration
+# ============================================================================
+
+logging:
+  # Log level (DEBUG, INFO, WARNING, ERROR, CRITICAL)
+  level: "INFO"
+
+  # Log format
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  date_format: "%Y-%m-%d %H:%M:%S"
+
+  # Log file configuration
+  file:
+    enabled: true
+    path: "logs/build_database.log"
+    max_bytes: 10485760  # 10 MB
+    backup_count: 5
+
+  # Console logging
+  console:
+    enabled: true
+    level: "INFO"  # Can be different from file level
+
+# ============================================================================
+# Progress Tracking
+# ============================================================================
+
+progress:
+  # Show progress bars using tqdm
+  show_progress_bars: true
+
+  # Progress bar update interval
+  update_interval: 1  # seconds
+
+  # Database-based resume (check existing records)
+  enable_resume: true
+
+  # Show detailed statistics
+  show_statistics: true
+
+# ============================================================================
+# Testing and Development
+# ============================================================================
+
+testing:
+  # Dry run mode (don't modify database)
+  dry_run: false
+
+  # Limit number of records for testing
+  limit: null  # Set to integer to limit processing
+
+  # Skip API calls in testing
+  mock_api_calls: false
+
+  # Verbose output for debugging
+  verbose: false
+
+# ============================================================================
+# Feature Flags
+# ============================================================================
+
+features:
+  # Fetch PMC full text when available
+  fetch_pmc_fulltext: true
+
+  # Validate DOIs before inserting
+  validate_dois: false
+
+  # Calculate paper relevance scores
+  calculate_relevance: false
+
+  # Fetch citation counts
+  fetch_citation_counts: false
+
+  # Extract keywords and MeSH terms
+  extract_keywords: true
+
+# ============================================================================
+# Output Configuration
+# ============================================================================
+
+output:
+  # Print summary at end
+  print_summary: true
+
+  # Export results to file
+  export_results: false
+  export_path: "results/database_build_results.json"
+
+  # Show sample papers
+  show_samples: 3  # Number of sample papers to display
+
+  # Generate statistics report
+  generate_report: false
+  report_path: "results/database_build_report.txt"
+
+# ============================================================================
+# Error Handling
+# ============================================================================
+
+error_handling:
+  # Continue processing on errors
+  continue_on_error: true
+
+  # Maximum errors before stopping
+  max_errors: 100
+
+  # Log failed records to file
+  log_failures: true
+  failure_log_path: "logs/failed_records.log"
+
+  # Rollback on critical errors
+  rollback_on_critical: true
+
+# ============================================================================
+# Performance Tuning
+# ============================================================================
+
+performance:
+  # Use connection pooling
+  use_connection_pool: false
+
+  # Parallel API requests (experimental)
+  parallel_requests: false
+  max_workers: 4
+
+  # Cache API responses
+  enable_cache: true
+  cache_ttl: 3600  # seconds (1 hour)
+
+  # Optimize database writes
+  use_wal_mode: true  # Write-Ahead Logging for better concurrency

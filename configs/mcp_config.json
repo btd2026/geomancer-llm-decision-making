@@ -1,0 +1,53 @@
+{
+  "servers": {
+    "ncbi": {
+      "name": "ncbi-mcp-server",
+      "enabled": true,
+      "config": {
+        "email": "btd8@yale.edu",
+        "tool": "manylatents_research",
+        "database": "pubmed",
+        "cache_enabled": true,
+        "cache_dir": "/workspace/cache"
+      }
+    },
+    "biomcp": {
+      "name": "biomcp",
+      "enabled": true,
+      "config": {
+        "databases": ["pubmed", "clinicaltrials"],
+        "max_results": 10000
+      }
+    },
+    "content_extractor": {
+      "name": "content-core",
+      "enabled": true,
+      "config": {
+        "output_format": "markdown",
+        "extract_tables": true,
+        "extract_figures": false,
+        "pdf_extract_method": "pypdf"
+      }
+    }
+  },
+
+  "storage": {
+    "database": {
+      "type": "sqlite",
+      "path": "/workspace/metadata/papers.db"
+    },
+    "pdf_storage": "/workspace/pdfs",
+    "extracted_text": "/workspace/extracted"
+  },
+
+  "rate_limits": {
+    "pubmed_api": {
+      "requests_per_second": 3,
+      "with_api_key": 10
+    },
+    "pdf_downloads": {
+      "concurrent": 5,
+      "delay_between_requests": 1
+    }
+  }
+}

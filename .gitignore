@@ -1,0 +1,73 @@
+# Singularity containers (large binary files)
+*.sif
+data/containers/
+
+# Data files
+data/papers/
+data/manylatents_benchmark/
+data/05_results/wandb_confusion_analysis/
+data/geo/
+data/synthetic/
+archive/logs/
+archive/phate_results/
+results/benchmarks/*/visualizations/
+exports/
+outputs/
+*.db
+*.sqlite
+*.sqlite3
+*.h5ad
+*.csv
+*.parquet
+*.png
+*.jpg
+*.jpeg
+*.sif
+
+# PDFs and extracted content
+*.pdf
+data/pdfs/
+data/extracted/
+
+# Logs
+logs/*.out
+logs/*.err
+data/papers/logs/
+
+# Cache
+data/cache/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.bak
+*.backup
+
+# Python
+*.egg-info/
+dist/
+build/
+
+# Nested git repositories and large directories
+manylatents/
