@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>W&B PHATE Structure Labeling - Multi-Select</title>
+    <style>
+        * { box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; margin: 0; padding: 20px; background: #f5f5f5; }
+        .header { background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%); color: white; padding: 20px; margin: -20px -20px 20px -20px; }
+        .header h1 { margin: 0 0 5px 0; }
+        .header p { margin: 0; opacity: 0.8; font-size: 14px; }
+        .progress { background: #ecf0f1; border-radius: 10px; height: 20px; margin: 15px 0 10px 0; }
+        .progress-bar { background: #27ae60; height: 100%; border-radius: 10px; transition: width 0.3s; }
+        .stats { display: flex; gap: 15px; margin: 10px 0; flex-wrap: wrap; }
+        .stat { background: #34495e; padding: 8px 15px; border-radius: 5px; font-size: 13px; }
+        .stat-group { background: #1a252f; padding: 10px 15px; border-radius: 5px; }
+        .stat-group-title { font-size: 11px; opacity: 0.7; margin-bottom: 5px; }
+        .stat-group-items { display: flex; gap: 10px; flex-wrap: wrap; }
+        .stat-item { font-size: 12px; }
+
+        .controls { background: white; padding: 15px; border-radius: 10px; margin-bottom: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .controls button { padding: 10px 20px; margin-right: 10px; margin-bottom: 5px; cursor: pointer; border: none; border-radius: 5px; font-size: 14px; }
+        .controls button:hover { opacity: 0.9; }
+        .btn-export { background: #27ae60; color: white; }
+        .btn-filter { background: #3498db; color: white; }
+        .btn-filter.active { background: #2980b9; box-shadow: inset 0 2px 4px rgba(0,0,0,0.2); }
+        .btn-clear { background: #e74c3c; color: white; }
+        .search-box { padding: 10px 15px; border: 1px solid #ddd; border-radius: 5px; width: 250px; margin-right: 15px; }
+
+        .gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(480px, 1fr)); gap: 20px; }
+        .card { background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.1); position: relative; transition: all 0.2s; }
+        .card.labeled { border-left: 5px solid #27ae60; }
+        .card.flagged { border: 3px solid #f39c12 !important; }
+        .card img { width: 100%; height: auto; display: block; cursor: pointer; }
+        .card img:hover { opacity: 0.95; }
+        .card-body { padding: 15px; }
+
+        /* Multi-select label badge */
+        .label-badge { position: absolute; top: 10px; left: 10px; padding: 4px 10px; border-radius: 12px; font-size: 11px; font-weight: bold; color: white; z-index: 10; display: none; max-width: 200px; }
+        .card.labeled .label-badge { display: block; }
+
+        .card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 5px; gap: 10px; }
+        .card-title { font-size: 14px; font-weight: bold; color: #2c3e50; flex: 1; }
+        .flag-btn { background: none; border: 2px solid #f39c12; color: #f39c12; padding: 4px 10px; border-radius: 4px; cursor: pointer; font-size: 11px; transition: all 0.2s; white-space: nowrap; }
+        .flag-btn:hover { background: #fef5e7; }
+        .flag-btn.flagged { background: #f39c12; color: white; }
+
+        /* Primary structure buttons - Multi-select */
+        .primary-label { margin-bottom: 12px; }
+        .primary-label-title { font-size: 11px; color: #7f8c8d; margin-bottom: 6px; font-weight: 600; }
+        .label-buttons { display: flex; gap: 5px; flex-wrap: wrap; }
+        .label-btn { padding: 6px 10px; border: 2px solid #ddd; background: white; cursor: pointer; border-radius: 5px; font-size: 11px; transition: all 0.2s; position: relative; }
+        .label-btn:hover { border-color: #3498db; background: #f8f9fa; }
+        .label-btn.selected { color: white; }
+        .label-btn.selected::after { content: "✓"; position: absolute; top: -5px; right: -5px; background: white; color: #2c3e50; width: 16px; height: 16px; border-radius: 50%; font-size: 10px; display: flex; align-items: center; justify-content: center; border: 2px solid currentColor; }
+
+        /* Structure type colors */
+        .label-btn[data-label="clusters"].selected { background: #e74c3c; border-color: #e74c3c; }
+        .label-btn[data-label="simple_traj"].selected { background: #f39c12; border-color: #f39c12; }
+        .label-btn[data-label="bifurcation"].selected { background: #27ae60; border-color: #27ae60; }
+        .label-btn[data-label="multi_branch"].selected { background: #3498db; border-color: #3498db; }
+        .label-btn[data-label="complex_tree"].selected { background: #9b59b6; border-color: #9b59b6; }
+        .label-btn[data-label="cyclic"].selected { background: #1abc9c; border-color: #1abc9c; }
+        .label-btn[data-label="surface"].selected { background: #d35400; border-color: #d35400; }
+        .label-btn[data-label="batch_effect"].selected { background: #95a5a6; border-color: #95a5a6; }
+
+        /* Color legend section for PHATE plots */
+        .color-legend-section { background: #fdf6e3; border: 1px solid #f0e6d2; border-radius: 5px; margin-bottom: 12px; }
+        .color-legend-header { display: flex; justify-content: space-between; align-items: center; padding: 8px 10px; cursor: pointer; }
+        .color-legend-header:hover { background: #f5edd5; }
+        .color-legend-title { font-size: 11px; font-weight: 600; color: #8e6f3a; display: flex; align-items: center; gap: 5px; }
+        .color-legend-label { font-size: 10px; color: #8e44ad; background: #f5eef8; padding: 2px 6px; border-radius: 3px; margin-left: 5px; }
+        .color-legend-toggle { font-size: 10px; color: #8e6f3a; }
+        .color-legend-body { padding: 8px 10px; border-top: 1px solid #f0e6d2; display: none; }
+        .color-legend-body.open { display: block; }
+
+        /* Secondary annotation controls */
+        .secondary-labels { border-top: 1px solid #eee; padding-top: 12px; margin-top: 12px; }
+        .annotation-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+        .annotation-item label { font-size: 11px; color: #7f8c8d; display: block; margin-bottom: 3px; font-weight: 500; }
+        .annotation-item select { width: 100%; padding: 6px 8px; font-size: 11px; border: 1px solid #ddd; border-radius: 4px; background: white; cursor: pointer; }
+        .annotation-item select:focus { border-color: #3498db; outline: none; }
+        .annotation-item select.filled { border-color: #27ae60; background: #f0fff4; }
+
+        /* Notes field */
+        .notes-section { margin-top: 10px; }
+        .notes { width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 5px; font-size: 12px; resize: vertical; min-height: 40px; }
+        .notes:focus { border-color: #3498db; outline: none; }
+
+        /* Header legend */
+        .header-legend { margin: 15px 0; padding: 15px; background: #1a252f; border-radius: 8px; }
+        .header-legend-title { font-size: 12px; font-weight: 600; margin-bottom: 10px; opacity: 0.9; }
+        .header-legend-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px; }
+        .header-legend-item { display: flex; align-items: center; gap: 8px; font-size: 11px; }
+        .header-legend-color { width: 14px; height: 14px; border-radius: 3px; flex-shrink: 0; }
+
+        /* Image modal */
+        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); }
+        .modal-content { max-width: 90%; max-height: 90%; margin: auto; display: block; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+        .modal-close { position: absolute; top: 20px; right: 30px; color: white; font-size: 40px; cursor: pointer; }
+
+        .hidden { display: none !important; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>W&B PHATE Structure Labeling - Multi-Select</h1>
+        <p>Select multiple structure types for each PHATE visualization</p>
+        <div class="progress"><div class="progress-bar" id="progressBar" style="width: 0%"></div></div>
+        <div class="stats">
+            <div class="stat"><strong><span id="labeledCount">0</span></strong> / <span id="totalCount">0</span> labeled</div>
+            <div class="stat"><strong><span id="multiSelectCount">0</span></strong> multi-structure</div>
+            <div class="stat"><strong><span id="annotatedCount">0</span></strong> annotated</div>
+            <div class="stat"><strong><span id="notesCount">0</span></strong> with notes</div>
+            <div class="stat" style="background:#f39c12"><strong><span id="flaggedCount">0</span></strong> flagged</div>
+        </div>
+        <div class="stats">
+            <div class="stat-group">
+                <div class="stat-group-title">PRIMARY STRUCTURE (Multi-Select)</div>
+                <div class="stat-group-items">
+                    <span class="stat-item">Clusters: <strong id="count_clusters">0</strong></span>
+                    <span class="stat-item">Simple Traj: <strong id="count_simple_traj">0</strong></span>
+                    <span class="stat-item">Bifurcation: <strong id="count_bifurcation">0</strong></span>
+                    <span class="stat-item">Multi-Branch: <strong id="count_multi_branch">0</strong></span>
+                    <span class="stat-item">Complex Tree: <strong id="count_complex_tree">0</strong></span>
+                    <span class="stat-item">Cyclic: <strong id="count_cyclic">0</strong></span>
+                    <span class="stat-item">Surface: <strong id="count_surface">0</strong></span>
+                    <span class="stat-item">Batch Effect: <strong id="count_batch_effect">0</strong></span>
+                </div>
+            </div>
+        </div>
+        <div class="header-legend">
+            <div class="header-legend-title">STRUCTURE TYPES & COLORS (Click multiple to select)</div>
+            <div class="header-legend-grid">
+                <div class="header-legend-item"><div class="header-legend-color" style="background:#e74c3c"></div> Clusters</div>
+                <div class="header-legend-item"><div class="header-legend-color" style="background:#f39c12"></div> Simple Trajectory</div>
+                <div class="header-legend-item"><div class="header-legend-color" style="background:#27ae60"></div> Bifurcation</div>
+                <div class="header-legend-item"><div class="header-legend-color" style="background:#3498db"></div> Multi-Branch</div>
+                <div class="header-legend-item"><div class="header-legend-color" style="background:#9b59b6"></div> Complex Tree</div>
+                <div class="header-legend-item"><div class="header-legend-color" style="background:#1abc9c"></div> Cyclic</div>
+                <div class="header-legend-item"><div class="header-legend-color" style="background:#d35400"></div> Surface</div>
+                <div class="header-legend-item"><div class="header-legend-color" style="background:#95a5a6"></div> Batch Effect</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="controls">
+        <input type="text" class="search-box" id="searchBox" placeholder="Search datasets..." onkeyup="filterBySearch()">
+        <button class="btn-export" onclick="exportLabels()">Export Multi-Select JSON</button>
+        <button class="btn-filter" onclick="filterCards('all')">Show All</button>
+        <button class="btn-filter" onclick="filterCards('unlabeled')">Unlabeled Only</button>
+        <button class="btn-filter" onclick="filterCards('labeled')">Labeled Only</button>
+        <button class="btn-filter" onclick="filterCards('multi')">Multi-Structure Only</button>
+        <button class="btn-filter" onclick="filterCards('annotated')">Annotated Only</button>
+        <button class="btn-filter" onclick="filterCards('notes')">With Notes</button>
+        <button class="btn-clear" onclick="if(confirm('Clear all data (labels, annotations, notes)?')) clearAll()">Clear All</button>
+    </div>
+
+    <div class="gallery" id="gallery">
+        <!-- Cards will be generated by JavaScript -->
+    </div>
+
+    <div class="modal" id="imageModal" onclick="closeModal()">
+        <span class="modal-close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+
+    <script>
+        // Data storage
+        let wandbData = {};
+        let runColors = {}; // Extracted colors for each run
+        let galleryData = {}; // Dynamic dataset info from metadata_analyzer.py
+        let labels = {}; // Structure: {runId: [array of structure types]}
+        let annotations = {density: {}, quality: {}}; // Secondary annotations
+        let notes = {}; // Run notes
+        let flagged = new Set();
+
+        const primaryTypes = ['clusters', 'simple_traj', 'bifurcation', 'multi_branch', 'complex_tree', 'cyclic', 'surface', 'batch_effect'];
+
+        const labelColors = {
+            clusters: '#e74c3c',
+            simple_traj: '#f39c12',
+            bifurcation: '#27ae60',
+            multi_branch: '#3498db',
+            complex_tree: '#9b59b6',
+            cyclic: '#1abc9c',
+            surface: '#d35400',
+            batch_effect: '#95a5a6'
+        };
+
+        // Load data
+        async function loadData() {
+            try {
+                // Load dynamic gallery data (from metadata_analyzer.py)
+                try {
+                    const galleryDataResponse = await fetch('gallery_data.json');
+                    if (galleryDataResponse.ok) {
+                        galleryData = await galleryDataResponse.json();
+                        console.log(`Loaded gallery data: ${Object.keys(galleryData.dataset_info || {}).length} label keys`);
+                    }
+                } catch (dataError) {
+                    console.warn('Could not load gallery_data.json:', dataError);
+                }
+
+                // Load run colors
+                try {
+                    const colorsResponse = await fetch('run_colors.json');
+                    if (colorsResponse.ok) {
+                        runColors = await colorsResponse.json();
+                        console.log(`Loaded colors for ${Object.keys(runColors).length} runs`);
+                    }
+                } catch (colorError) {
+                    console.warn('Could not load run_colors.json, using default colors:', colorError);
+                }
+
+                // Load wandb metadata
+                const response = await fetch('wandb_metadata.json');
+                if (response.ok) {
+                    wandbData = await response.json();
+                }
+
+                // Build run_specific_info from gallery_data and run_colors
+                if (galleryData.run_specific_info) {
+                    // Already has the structure we need
+                } else if (galleryData.dataset_info) {
+                    // Convert old format to new format
+                    galleryData.run_specific_info = {};
+                    Object.values(galleryData.dataset_info).forEach(datasetGroup => {
+                        if (datasetGroup.runs) {
+                            datasetGroup.runs.forEach(runId => {
+                                if (!galleryData.run_specific_info[runId]) {
+                                    galleryData.run_specific_info[runId] = {
+                                        image_path: `images/${runId}.png`,
+                                        label_key: datasetGroup.label_key || 'unknown'
+                                    };
+                                }
+                            });
+                        }
+                    });
+                }
+
+                // Merge in color information
+                Object.entries(runColors).forEach(([runId, colorData]) => {
+                    if (!galleryData.run_specific_info) {
+                        galleryData.run_specific_info = {};
+                    }
+                    if (!galleryData.run_specific_info[runId]) {
+                        galleryData.run_specific_info[runId] = {};
+                    }
+                    galleryData.run_specific_info[runId].colors = colorData.colors || [];
+                    galleryData.run_specific_info[runId].label_key = colorData.label_key || galleryData.run_specific_info[runId].label_key;
+                });
+
+                loadFromStorage();
+                renderGallery();
+                updateStats();
+            } catch (error) {
+                console.error('Error loading data:', error);
+                renderGallery();
+            }
+        }
+
+        function renderGallery() {
+            const gallery = document.getElementById('gallery');
+            gallery.innerHTML = '';
+
+            let index = 0;
+            Object.entries(wandbData).forEach(([runId, runData]) => {
+                const card = createCard(runId, runData, index);
+                gallery.appendChild(card);
+                index++;
+            });
+
+            document.getElementById('totalCount').textContent = Object.keys(wandbData).length;
+        }
+
+        function createCard(runId, runData, index) {
+            // Get run data from multiple sources
+            const runInfo = galleryData.run_specific_info?.[runId] || {};
+            const wandbRunData = wandbData[runId] || runData || {};
+            const runLabels = labels[runId] || [];
+            const isLabeled = runLabels.length > 0;
+            const isFlagged = flagged.has(runId);
+
+            // Get actual label key from config (what was actually used for coloring)
+            const actualLabelKey = wandbRunData.config?.data?.value?.label_key ||
+                                   wandbRunData.label_key ||
+                                   runInfo?.label_key ||
+                                   'N/A';
+
+            // Create badge text
+            let badgeText = '';
+            let badgeStyle = '';
+            if (runLabels.length === 1) {
+                badgeText = runLabels[0].replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+                // Use actual extracted colors for this specific run
+                const runColor = runInfo.colors?.[0] || labelColors[runLabels[0]] || '#e74c3c';
+                badgeStyle = `background: ${runColor};`;
+            } else if (runLabels.length > 1) {
+                badgeText = `${runLabels.length} structures`;
+                // Use actual extracted colors for this run
+                const colors = runLabels.slice(0, 3).map((l, i) => {
+                    const idx = runInfo.colors?.[i] || labelColors[l] || getDefaultColor(i);
+                    return idx === 0 ? idx : `, ${idx}`; // Skip first color for gradient
+                });
+                badgeStyle = `background: linear-gradient(45deg, ${colors.join(', ')})`;
+            }
+
+            // Image path
+            const imagePath = runInfo.image_path || `images/${runId}.png`;
+
+            // Create card element
+            const card = document.createElement('div');
+            card.className = 'card';
+            if (isLabeled) card.classList.add('labeled');
+            if (isFlagged) card.classList.add('flagged');
+            card.dataset.runId = runId;
+
+            card.innerHTML = `
+                ${badgeText ? `<div class="label-badge" style="${badgeStyle}">${badgeText}</div>` : '<div class="label-badge" style="display:none;"></div>'}
+                <img src="${imagePath}" alt="PHATE visualization" onclick="openModal('${imagePath}')"
+                     onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjhmOWZhIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNiIgZmlsbD0iIzk1YTVhNiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkltYWdlIG5vdCBmb3VuZDwvdGV4dD48L3N2Zz4='">
+                <div class="card-body">
+                    <div class="card-header">
+                        <div class="card-title">${wandbRunData.dataset_name || runInfo.subtitle || 'Unknown Dataset'}</div>
+                        <button class="flag-btn ${isFlagged ? 'flagged' : ''}" onclick="toggleFlag('${runId}')">
+                            ${isFlagged ? 'FLAGGED' : 'Flag'}
+                        </button>
+                    </div>
+                    <div style="font-size: 11px; color: #95a5a6; margin-bottom: 10px;">
+                        Run: ${runId} | Label: ${actualLabelKey}
+                        ${runInfo.num_categories ? `| ${runInfo.num_categories} classes` : ''}
+                    </div>
+
+                    ${createPlotLegend(wandbRunData, runInfo)}
+
+                    <div class="primary-label">
+                        <div class="primary-label-title">STRUCTURE TYPES (Click multiple)</div>
+                        <div class="label-buttons">
+                            ${createLabelButtons(runId, runLabels)}
+                        </div>
+                    </div>
+
+                    <div class="secondary-labels">
+                        <div class="annotation-grid">
+                            <div class="annotation-item">
+                                <label>Density Pattern:</label>
+                                <select onchange="setAnnotation('${runId}', 'density', this.value)" class="${annotations.density[runId] ? 'filled' : ''}">
+                                    <option value="">Select...</option>
+                                    <option value="uniform" ${annotations.density[runId] === 'uniform' ? 'selected' : ''}>Uniform</option>
+                                    <option value="sparse" ${annotations.density[runId] === 'sparse' ? 'selected' : ''}>Sparse</option>
+                                    <option value="dense_core" ${annotations.density[runId] === 'dense_core' ? 'selected' : ''}>Dense Core</option>
+                                    <option value="gradient" ${annotations.density[runId] === 'gradient' ? 'selected' : ''}>Gradient</option>
+                                </select>
+                            </div>
+                            <div class="annotation-item">
+                                <label>Quality:</label>
+                                <select onchange="setAnnotation('${runId}', 'quality', this.value)" class="${annotations.quality[runId] ? 'filled' : ''}">
+                                    <option value="">Select...</option>
+                                    <option value="excellent" ${annotations.quality[runId] === 'excellent' ? 'selected' : ''}>Excellent</option>
+                                    <option value="good" ${annotations.quality[runId] === 'good' ? 'selected' : ''}>Good</option>
+                                    <option value="fair" ${annotations.quality[runId] === 'fair' ? 'selected' : ''}>Fair</option>
+                                    <option value="poor" ${annotations.quality[runId] === 'poor' ? 'selected' : ''}>Poor</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="notes-section">
+                        <textarea class="notes" placeholder="Additional notes..." onchange="setNotes('${runId}', this.value)">${notes[runId] || ''}</textarea>
+                    </div>
+                </div>
+            `;
+
+            return card;
+        }
+
+        // Helper function for default colors when actual colors aren't available
+        function getDefaultColor(index) {
+            const defaults = ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd', '#8c564b', '#e377c2', '#7f7f7f', '#bcbd22', '#17becf'];
+            return defaults[index % defaults.length];
+        }
+
+        function createPlotLegend(runData) {
+            const labelKey = runData.label_key || '';
+            const datasetName = runData.dataset_name || '';
+            const config = runData.config || {};
+            const runId = runData.run_id || runData.wandb_run_id;
+
+            // Get actual colors for this specific run (extracted from plot images)
+            const actualRunColors = runColors[runId];
+            const hasActualColors = actualRunColors && actualRunColors.colors && actualRunColors.colors.length > 0;
+
+            // Standard matplotlib categorical colors (fallback)
+            const defaultColors = ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd', '#8c564b', '#e377c2', '#7f7f7f', '#bcbd22', '#17becf'];
+
+            // Dataset mappings using standard categorical colors
+            const knownDatasets = {
+                'Setty2019': {
+                    type: 'Hematopoietic Development',
+                    categories: ['HSCs', 'MPPs', 'CMPs', 'MEPs', 'Erythroblasts'],
+                    colors: defaultColors.slice(0, 5),
+                    description: 'Bone marrow cell types (standard categorical colors)'
+                },
+                'Granja2019': {
+                    type: 'Cell Type Classification',
+                    categories: ['CD4+ T cells', 'CD8+ T cells', 'B cells', 'NK cells', 'Monocytes', 'DCs'],
+                    colors: defaultColors.slice(0, 6),
+                    description: 'Immune cell populations (matplotlib categorical colors)'
+                },
+                'development_stage': {
+                    type: 'Developmental Timeline',
+                    categories: ['E10.5', 'E12.5', 'E14.5', 'E16.5', 'Adult'],
+                    colors: defaultColors.slice(0, 5),
+                    description: 'Embryonic development stages (categorical colors)'
+                },
+                'cell_type': {
+                    type: 'Cell Type Identity',
+                    categories: ['Epithelial', 'Mesenchymal', 'Endothelial', 'Neural', 'Immune'],
+                    colors: defaultColors.slice(0, 5),
+                    description: 'Major cell lineages (categorical colors)'
+                },
+                'Day': {
+                    type: 'Time Course',
+                    categories: ['Day 0', 'Day 1', 'Day 3', 'Day 7', 'Day 14'],
+                    colors: defaultColors.slice(0, 5),
+                    description: 'Experimental timeline (categorical colors)'
+                },
+                'cell_ontology_class': {
+                    type: 'Cell Ontology',
+                    categories: ['Neurons', 'Astrocytes', 'Oligodendrocytes', 'Microglia', 'Endothelial'],
+                    colors: ['#8B4513', '#DAA520', '#4682B4', '#DC143C', '#32CD32'],
+                    description: 'Brain cell types (neuro-specific palette)'
+                },
+                'cluster': {
+                    type: 'Cluster Assignment',
+                    categories: ['Cluster 0', 'Cluster 1', 'Cluster 2', 'Cluster 3', 'Cluster 4'],
+                    colors: defaultColors.slice(0, 5),
+                    description: 'Data-driven clusters (standard matplotlib colors)'
+                },
+                'tissue': {
+                    type: 'Tissue Origin',
+                    categories: ['Heart', 'Brain', 'Lung', 'Kidney', 'Liver'],
+                    colors: ['#DC143C', '#FFB6C1', '#87CEEB', '#8FBC8F', '#8B4513'],
+                    description: 'Organ-specific tissues (anatomical colors)'
+                },
+                'time_point': {
+                    type: 'Time Course',
+                    categories: ['T0', 'T6h', 'T12h', 'T24h', 'T48h'],
+                    colors: ['#2C3E50', '#34495E', '#5D6D7E', '#85929E', '#AEB6BF'],
+                    description: 'Temporal progression (dark to light gradient)'
+                },
+                'treatment': {
+                    type: 'Treatment Condition',
+                    categories: ['Control', 'LPS', 'IFN-γ', 'IL-4', 'TNF-α'],
+                    colors: ['#95A5A6', '#E74C3C', '#3498DB', '#27AE60', '#F39C12'],
+                    description: 'Experimental conditions (neutral + bright treatment colors)'
+                },
+                'genotype': {
+                    type: 'Genetic Background',
+                    categories: ['WT', 'KO', 'Heterozygous', 'Transgenic'],
+                    colors: ['#2ECC71', '#E74C3C', '#F39C12', '#9B59B6'],
+                    description: 'Genetic modifications (green=normal, red=knockout)'
+                },
+                'disease_status': {
+                    type: 'Disease State',
+                    categories: ['Healthy', 'Mild', 'Moderate', 'Severe'],
+                    colors: ['#27AE60', '#F1C40F', '#E67E22', '#C0392B'],
+                    description: 'Disease progression (green to red severity scale)'
+                },
+                'Region': {
+                    type: 'Anatomical Region',
+                    categories: ['Cortex', 'Hippocampus', 'Thalamus', 'Brainstem', 'Cerebellum'],
+                    colors: ['#8B4513', '#DAA520', '#4682B4', '#DC143C', '#32CD32'],
+                    description: 'Brain anatomical regions (neuro-anatomical colors)'
+                },
+                'cluster_id': {
+                    type: 'Data-Driven Clusters',
+                    categories: ['Cluster 0', 'Cluster 1', 'Cluster 2', 'Cluster 3', 'Cluster 4'],
+                    colors: defaultColors.slice(0, 5),
+                    description: 'Unsupervised clustering results (standard matplotlib colors)'
+                },
+                'female_cluster_id': {
+                    type: 'Female-Specific Clusters',
+                    categories: ['F-Cluster 0', 'F-Cluster 1', 'F-Cluster 2', 'F-Cluster 3'],
+                    colors: ['#FF69B4', '#FF1493', '#DC143C', '#B22222'],
+                    description: 'Female population clusters (pink/red gradient)'
+                },
+                'male_cluster_id': {
+                    type: 'Male-Specific Clusters',
+                    categories: ['M-Cluster 0', 'M-Cluster 1', 'M-Cluster 2', 'M-Cluster 3'],
+                    colors: ['#4169E1', '#0000FF', '#191970', '#000080'],
+                    description: 'Male population clusters (blue gradient)'
+                },
+                'time': {
+                    type: 'Time Points',
+                    categories: ['0h', '6h', '12h', '24h', '48h'],
+                    colors: ['#34495E', '#5D6D7E', '#7F8C8D', '#95A5A6', '#BDC3C7'],
+                    description: 'Temporal sampling points (grayscale progression)'
+                }
+            };
+
+            // Dataset-specific inference from names
+            const datasetInferences = {
+                'phate_HypoMap': 'Hypothalamic cell atlas - neuronal populations',
+                'plaque_atlas': 'Atherosclerotic plaque - inflammatory cells',
+                'ClassNeuroblast': 'Neuroblast classification - developmental stages',
+                'Oral_and_Craniofacial': 'Oral tissue - epithelial and mesenchymal cells',
+                'Mouse_pancreatic': 'Pancreatic islets - endocrine cell types',
+                'Skeletal_muscle': 'Muscle tissue - fiber types and satellite cells'
+            };
+
+            let legendInfo = [];
+            let colorExamples = [];
+
+            // Prioritize config label_key (actual visualization variable) over top-level label_key (dataset name)
+            const actualLabelKey = config?.data?.value?.label_key || labelKey;
+            const datasetInfo = knownDatasets[actualLabelKey];
+
+            if (datasetInfo) {
+                legendInfo.push(`<strong>Data Type:</strong> ${datasetInfo.type}`);
+                legendInfo.push(`<strong>Description:</strong> ${datasetInfo.description}`);
+
+                // Create color-coded examples using actual extracted colors when available
+                let colorsToUse = defaultColors;
+                if (hasActualColors) {
+                    colorsToUse = actualRunColors.colors;
+                } else if (datasetInfo && datasetInfo.colors) {
+                    colorsToUse = datasetInfo.colors;
+                }
+
+                colorExamples = datasetInfo.categories.slice(0, Math.min(8, colorsToUse.length)).map((category, i) =>
+                    `<div style="display: flex; align-items: center; gap: 8px; margin: 2px 0;">
+                        <div style="width: 12px; height: 12px; background: ${colorsToUse[i % colorsToUse.length]}; border-radius: 2px; border: 1px solid #ddd;"></div>
+                        <span style="font-size: 10px; color: #2c3e50;">${category}</span>
+                    </div>`
+                ).join('');
+            } else {
+                // Fallback based on dataset name
+                const inference = Object.keys(datasetInferences).find(key => datasetName.includes(key));
+                if (inference) {
+                    legendInfo.push(`<strong>Tissue/System:</strong> ${datasetInferences[inference]}`);
+                } else if (actualLabelKey) {
+                    legendInfo.push(`<strong>Colors represent:</strong> ${actualLabelKey.replace(/_/g, ' ')}`);
+
+                    // Create generic color examples for unknown label keys
+                    let numCategories = 5; // default fallback
+                    let colorsToUse = defaultColors;
+
+                    if (hasActualColors) {
+                        // Use actual extracted colors and their count
+                        numCategories = actualRunColors.num_categories || actualRunColors.colors.length;
+                        colorsToUse = actualRunColors.colors;
+                    } else {
+                        // Try to get from config
+                        numCategories = config?.num_classes ||
+                                      config?.data?.value?.num_classes ||
+                                      5;
+                    }
+
+                    const genericCategories = Array.from({length: Math.min(numCategories, 8)},
+                        (_, i) => `Category ${i + 1}`);
+
+                    colorExamples = genericCategories.map((category, i) =>
+                        `<div style="display: flex; align-items: center; gap: 8px; margin: 2px 0;">
+                            <div style="width: 12px; height: 12px; background: ${colorsToUse[i % colorsToUse.length]}; border-radius: 2px; border: 1px solid #ddd;"></div>
+                            <span style="font-size: 10px; color: #2c3e50;">${category}</span>
+                        </div>`
+                    ).join('');
+
+                    // Try to provide generic color guidance for unknown label keys
+                    if (actualLabelKey.toLowerCase().includes('time') || actualLabelKey.toLowerCase().includes('day')) {
+                        legendInfo.push(`<em>Temporal data - colors represent time points</em>`);
+                    } else if (actualLabelKey.toLowerCase().includes('type') || actualLabelKey.toLowerCase().includes('class')) {
+                        legendInfo.push(`<em>Categorical data - colors distinguish different types</em>`);
+                    } else if (actualLabelKey.toLowerCase().includes('stage') || actualLabelKey.toLowerCase().includes('phase')) {
+                        legendInfo.push(`<em>Developmental data - colors show progression stages</em>`);
+                    } else if (actualLabelKey.toLowerCase().includes('cluster')) {
+                        legendInfo.push(`<em>Clustering data - colors show data-driven groups</em>`);
+                    }
+                }
+            }
+
+            // Add configuration details
+            if (config?.data?.value?.label_key) {
+                const configLabelKey = config.data.value.label_key;
+                if (configLabelKey !== labelKey) {
+                    legendInfo.push(`<strong>Config Label:</strong> ${configLabelKey}`);
+                }
+            }
+
+            // Extract number of classes from various sources
+            const numClasses = config?.num_classes ||
+                             config?.data?.value?.num_classes ||
+                             (datasetInfo ? datasetInfo.categories.length : null);
+
+            if (numClasses) {
+                legendInfo.push(`<strong>Number of classes:</strong> ${numClasses}`);
+            }
+
+            if (legendInfo.length === 0) {
+                legendInfo.push('PHATE embedding visualization');
+                legendInfo.push('Colors indicate different data categories');
+            }
+
+            return `
+                <div class="color-legend-section">
+                    <div class="color-legend-header" onclick="toggleColorLegend(this)">
+                        <div class="color-legend-title">
+                            Color Legend: ${actualLabelKey || 'PHATE Plot'}
+                            <span class="color-legend-label">${datasetInfo ? datasetInfo.type : 'Embedding'}</span>
+                        </div>
+                        <div class="color-legend-toggle">▶</div>
+                    </div>
+                    <div class="color-legend-body">
+                        ${legendInfo.map(info => `<div style="margin: 4px 0; color: #2c3e50; font-size: 11px;">${info}</div>`).join('')}
+                        ${colorExamples ? `<div style="margin-top: 8px; padding-top: 8px; border-top: 1px solid #f0e6d2;">
+                            <div style="font-size: 10px; color: #8e6f3a; margin-bottom: 6px; font-weight: 600;">Example Categories:</div>
+                            ${colorExamples}
+                        </div>` : ''}
+                        <div style="margin-top: 6px; font-size: 9px; color: #95a5a6; font-style: italic;">
+                            ${hasActualColors ?
+                                '* Colors extracted from actual PHATE plot images' :
+                                '* Approximate colors using matplotlib defaults - actual plot colors may vary'}
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function createLabelButtons(runId, selectedLabels) {
+            return primaryTypes.map(type => {
+                const isSelected = selectedLabels.includes(type);
+                const displayName = type.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+                return `<button class="label-btn ${isSelected ? 'selected' : ''}" data-label="${type}" onclick="toggleStructure('${runId}', '${type}')">
+                    ${displayName}
+                </button>`;
+            }).join('');
+        }
+
+        function toggleColorLegend(header) {
+            const body = header.nextElementSibling;
+            const toggle = header.querySelector('.color-legend-toggle');
+
+            if (body.classList.contains('open')) {
+                body.classList.remove('open');
+                toggle.textContent = '▶';
+            } else {
+                body.classList.add('open');
+                toggle.textContent = '▼';
+            }
+        }
+
+        function setAnnotation(runId, field, value) {
+            if (value) {
+                annotations[field][runId] = value;
+                const select = event.target;
+                select.classList.add('filled');
+            } else {
+                delete annotations[field][runId];
+                const select = event.target;
+                select.classList.remove('filled');
+            }
+            saveToStorage();
+        }
+
+        function setNotes(runId, value) {
+            if (value.trim()) {
+                notes[runId] = value.trim();
+            } else {
+                delete notes[runId];
+            }
+            saveToStorage();
+        }
+
+        function toggleStructure(runId, structureType) {
+            if (!labels[runId]) {
+                labels[runId] = [];
+            }
+
+            const card = document.querySelector(`[data-run-id="${runId}"]`);
+            const button = card.querySelector(`[data-label="${structureType}"]`);
+
+            if (labels[runId].includes(structureType)) {
+                // Remove structure
+                labels[runId] = labels[runId].filter(s => s !== structureType);
+                button.classList.remove('selected');
+            } else {
+                // Add structure
+                labels[runId].push(structureType);
+                button.classList.add('selected');
+            }
+
+            // Update card status
+            if (labels[runId].length > 0) {
+                card.classList.add('labeled');
+            } else {
+                card.classList.remove('labeled');
+            }
+
+            // Update badge
+            updateCardBadge(runId);
+            updateStats();
+            saveToStorage();
+        }
+
+        function updateCardBadge(runId) {
+            const card = document.querySelector(`[data-run-id="${runId}"]`);
+            const badge = card.querySelector('.label-badge');
+            const runLabels = labels[runId] || [];
+
+            if (runLabels.length === 0) {
+                badge.style.display = 'none';
+            } else {
+                badge.style.display = 'block';
+
+                if (runLabels.length === 1) {
+                    badge.textContent = runLabels[0].replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+                    badge.style.background = labelColors[runLabels[0]];
+                } else {
+                    badge.textContent = `${runLabels.length} structures`;
+                    const colors = runLabels.slice(0, 3).map(l => labelColors[l]).join(', ');
+                    badge.style.background = `linear-gradient(45deg, ${colors})`;
+                }
+            }
+        }
+
+        function toggleFlag(runId) {
+            const card = document.querySelector(`[data-run-id="${runId}"]`);
+            const flagBtn = card.querySelector('.flag-btn');
+
+            if (flagged.has(runId)) {
+                flagged.delete(runId);
+                card.classList.remove('flagged');
+                flagBtn.classList.remove('flagged');
+                flagBtn.textContent = 'Flag';
+            } else {
+                flagged.add(runId);
+                card.classList.add('flagged');
+                flagBtn.classList.add('flagged');
+                flagBtn.textContent = 'FLAGGED';
+            }
+
+            updateStats();
+            saveToStorage();
+        }
+
+        function updateStats() {
+            const totalRuns = Object.keys(wandbData).length;
+            const labeledRuns = Object.keys(labels).filter(runId => labels[runId].length > 0).length;
+            const multiSelectRuns = Object.keys(labels).filter(runId => labels[runId].length > 1).length;
+
+            // Calculate annotated runs (runs with any annotations)
+            const annotatedRunIds = new Set([
+                ...Object.keys(annotations.density),
+                ...Object.keys(annotations.quality)
+            ]);
+            const annotatedCount = annotatedRunIds.size;
+
+            // Calculate runs with notes
+            const notesCount = Object.keys(notes).length;
+
+            document.getElementById('labeledCount').textContent = labeledRuns;
+            document.getElementById('multiSelectCount').textContent = multiSelectRuns;
+            document.getElementById('annotatedCount').textContent = annotatedCount;
+            document.getElementById('notesCount').textContent = notesCount;
+            document.getElementById('flaggedCount').textContent = flagged.size;
+
+            // Update progress bar based on labeled runs
+            const progress = totalRuns > 0 ? (labeledRuns / totalRuns) * 100 : 0;
+            document.getElementById('progressBar').style.width = `${progress}%`;
+
+            // Update structure counts
+            const counts = {};
+            primaryTypes.forEach(type => counts[type] = 0);
+
+            Object.values(labels).forEach(runLabels => {
+                runLabels.forEach(label => {
+                    if (counts[label] !== undefined) {
+                        counts[label]++;
+                    }
+                });
+            });
+
+            primaryTypes.forEach(type => {
+                const el = document.getElementById(`count_${type}`);
+                if (el) el.textContent = counts[type];
+            });
+        }
+
+        function filterCards(filter) {
+            // Update active filter button
+            document.querySelectorAll('.btn-filter').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            const cards = document.querySelectorAll('.card');
+            cards.forEach(card => {
+                const runId = card.getAttribute('data-run-id');
+                const runLabels = labels[runId] || [];
+                const isLabeled = runLabels.length > 0;
+                const isMulti = runLabels.length > 1;
+                const isFlagged = flagged.has(runId);
+                const isAnnotated = annotations.density[runId] || annotations.quality[runId];
+                const hasNotes = notes[runId];
+
+                let show = false;
+                switch (filter) {
+                    case 'all':
+                        show = true;
+                        break;
+                    case 'labeled':
+                        show = isLabeled;
+                        break;
+                    case 'unlabeled':
+                        show = !isLabeled;
+                        break;
+                    case 'multi':
+                        show = isMulti;
+                        break;
+                    case 'annotated':
+                        show = isAnnotated;
+                        break;
+                    case 'notes':
+                        show = hasNotes;
+                        break;
+                    case 'flagged':
+                        show = isFlagged;
+                        break;
+                }
+
+                card.style.display = show ? 'block' : 'none';
+            });
+        }
+
+        function filterBySearch() {
+            const searchTerm = document.getElementById('searchBox').value.toLowerCase();
+            const cards = document.querySelectorAll('.card');
+
+            cards.forEach(card => {
+                const runId = card.getAttribute('data-run-id');
+                const runData = wandbData[runId] || {};
+                const runLabels = labels[runId] || [];
+
+                const searchableText = [
+                    runId,
+                    runData.dataset_name || '',
+                    runData.label_key || '',
+                    ...runLabels
+                ].join(' ').toLowerCase();
+
+                const matches = searchableText.includes(searchTerm);
+                card.style.display = matches ? 'block' : 'none';
+            });
+        }
+
+        function exportLabels() {
+            const exportData = {
+                labels: labels,
+                annotations: annotations,
+                notes: notes,
+                flagged: [...flagged],
+                exported_at: new Date().toISOString(),
+                total_runs: Object.keys(wandbData).length,
+                labeled_runs: Object.keys(labels).filter(runId => labels[runId].length > 0).length,
+                multi_structure_runs: Object.keys(labels).filter(runId => labels[runId].length > 1).length,
+                annotated_runs: Object.keys(annotations.density).length + Object.keys(annotations.quality).length,
+                notes_count: Object.keys(notes).length,
+                structure_counts: {}
+            };
+
+            // Calculate structure counts
+            primaryTypes.forEach(type => exportData.structure_counts[type] = 0);
+            Object.values(labels).forEach(runLabels => {
+                runLabels.forEach(label => {
+                    if (exportData.structure_counts[label] !== undefined) {
+                        exportData.structure_counts[label]++;
+                    }
+                });
+            });
+
+            // Add annotation statistics
+            exportData.annotation_stats = {
+                density: Object.keys(annotations.density).length,
+                quality: Object.keys(annotations.quality).length
+            };
+
+            const dataStr = JSON.stringify(exportData, null, 2);
+            const dataBlob = new Blob([dataStr], {type: 'application/json'});
+            const url = URL.createObjectURL(dataBlob);
+
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = `wandb_complete_analysis_${new Date().toISOString().split('T')[0]}.json`;
+            link.click();
+
+            URL.revokeObjectURL(url);
+        }
+
+        function clearAll() {
+            labels = {};
+            annotations = {density: {}, quality: {}};
+            notes = {};
+            flagged.clear();
+            saveToStorage();
+            renderGallery();
+            updateStats();
+        }
+
+        function saveToStorage() {
+            localStorage.setItem('wandb_structure_labels', JSON.stringify(labels));
+            localStorage.setItem('wandb_annotations', JSON.stringify(annotations));
+            localStorage.setItem('wandb_notes', JSON.stringify(notes));
+            localStorage.setItem('wandb_flagged_runs', JSON.stringify([...flagged]));
+        }
+
+        function loadFromStorage() {
+            const savedLabels = localStorage.getItem('wandb_structure_labels');
+            if (savedLabels) {
+                labels = JSON.parse(savedLabels);
+            }
+
+            const savedAnnotations = localStorage.getItem('wandb_annotations');
+            if (savedAnnotations) {
+                annotations = JSON.parse(savedAnnotations);
+            } else {
+                annotations = {density: {}, quality: {}};
+            }
+
+            const savedNotes = localStorage.getItem('wandb_notes');
+            if (savedNotes) {
+                notes = JSON.parse(savedNotes);
+            }
+
+            const savedFlags = localStorage.getItem('wandb_flagged_runs');
+            if (savedFlags) {
+                flagged = new Set(JSON.parse(savedFlags));
+            }
+        }
+
+        function openModal(imageSrc) {
+            document.getElementById('modalImage').src = imageSrc;
+            document.getElementById('imageModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('imageModal').style.display = 'none';
+        }
+
+        // Initialize
+        loadData();
+        setInterval(saveToStorage, 30000); // Auto-save every 30 seconds
+    </script>
+</body>
+</html>

@@ -38,16 +38,16 @@ export NCBI_EMAIL="your@email.com"
 
 ```bash
 # 1. Build the CELLxGENE-to-Paper database
-python scripts/build_database_from_cellxgene.py --limit 100
+python scripts/data_collection/build_database_from_cellxgene.py --limit 100
 
 # 2. Generate LLM-powered paper descriptions
-python scripts/generate_llm_descriptions.py --limit 50
+python scripts/llm_processing/generate_llm_descriptions.py --limit 50
 
 # 3. Extract algorithms from papers
-python scripts/extract_algorithms_from_papers.py
+python scripts/llm_processing/extract_algorithms_from_papers.py
 
 # 4. Run benchmarking pipeline
-python scripts/run_phate_small_datasets.py
+python scripts/benchmarking/run_phate_small_datasets.py
 ```
 
 ### Option 2: Use Existing Results

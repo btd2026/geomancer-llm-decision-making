@@ -1,0 +1,6 @@
+{
+  "language": "python3",
+  "run": "python3 -m http.server 8000 --directory wandb_gallery_replit",
+  "onBoot": "echo 'W&B Gallery Server Starting...'",
+  "entrypoint": "create_replit_wandb_gallery.py"
+}

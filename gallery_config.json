@@ -1,0 +1,92 @@
+{
+  "structure_types": {
+    "clusters": {
+      "name": "Clusters",
+      "color": "#e74c3c",
+      "description": "Discrete, well-separated cell populations"
+    },
+    "simple_traj": {
+      "name": "Simple Trajectory",
+      "color": "#f39c12",
+      "description": "Linear or curved differentiation paths"
+    },
+    "bifurcation": {
+      "name": "Bifurcation",
+      "color": "#9b59b6",
+      "description": "Single trajectory splitting into two branches"
+    },
+    "multi_branch": {
+      "name": "Multi-Branch",
+      "color": "#3498db",
+      "description": "Multiple branching trajectories from common origin"
+    },
+    "complex_tree": {
+      "name": "Complex Tree",
+      "color": "#e67e22",
+      "description": "Hierarchical branching with multiple levels"
+    },
+    "cyclic": {
+      "name": "Cyclic",
+      "color": "#f1c40f",
+      "description": "Circular or recurring patterns"
+    },
+    "surface": {
+      "name": "Surface",
+      "color": "#16a085",
+      "description": "2D manifold-like structures"
+    },
+    "batch_effect": {
+      "name": "Batch Effect",
+      "color": "#95a5a6",
+      "description": "Technical artifacts creating false structures"
+    }
+  },
+  "ui_config": {
+    "grid_min_width": "480px",
+    "animation_duration": "0.3s",
+    "card_border_radius": "10px",
+    "header_gradient_start": "#2c3e50",
+    "header_gradient_end": "#34495e",
+    "primary_button_bg": "#27ae60",
+    "filter_button_bg": "#3498db",
+    "search_placeholder": "Filter runs..."
+  },
+  "data_extraction": {
+    "extract_categories_from_metadata": true,
+    "use_runtime_colors": true,
+    "fallback_color_scheme": "matplotlib_default",
+    "matplotlib_default_colors": ["#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd", "#8c564b", "#e377c2", "#7f7f7f", "#bcbd22", "#17becf"]
+  },
+  "secondary_annotations": {
+    "density": ["sparse", "medium", "dense"],
+    "quality": ["poor", "fair", "good", "excellent"],
+    "confidence": ["low", "medium", "high"]
+  },
+  "known_datasets": {
+    "development_stage": {
+      "type": "Developmental Timeline",
+      "categories": null,
+      "colors": null
+    },
+    "cell_type": {
+      "type": "Cell Type Identity",
+      "categories": null,
+      "colors": null
+    },
+    "cluster_id": {
+      "type": "Cluster Assignment",
+      "categories": null,
+      "colors": null
+    },
+    "Region": {
+      "type": "Anatomical Region",
+      "categories": null,
+      "colors": null
+    },
+    "Day": {
+      "type": "Time Course",
+      "categories": null,
+      "colors": null
+    }
+  }
+}

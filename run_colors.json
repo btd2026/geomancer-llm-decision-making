@@ -1,0 +1,1732 @@
+{
+  "hgftnuic": {
+    "colors": [
+      "#21918c",
+      "#440154",
+      "#fce625"
+    ],
+    "num_categories": 3,
+    "label_key": "development_stage",
+    "dataset_name": "phate_A"
+  },
+  "ijbevki5": {
+    "colors": [
+      "#95d840",
+      "#287d8e",
+      "#440154",
+      "#23a983",
+      "#dce218",
+      "#355d8d",
+      "#9f9f9f",
+      "#5f5f5f",
+      "#48c16d",
+      "#65cb5e",
+      "#aadf66",
+      "#7f7f7f",
+      "#dfdfdf",
+      "#bfbfbf",
+      "#3f3f3f",
+      "#b9dd28",
+      "#f0e731",
+      "#453781"
+    ],
+    "num_categories": 39,
+    "label_key": "cell_type",
+    "dataset_name": "phate_A"
+  },
+  "qc0n604k": {
+    "colors": [
+      "#440154",
+      "#23898e",
+      "#fde725",
+      "#afdc2f",
+      "#551863",
+      "#693476",
+      "#36ad90",
+      "#9f9f9f",
+      "#5f5f5f",
+      "#d8e219",
+      "#bfe359",
+      "#7f7f7f",
+      "#dfdfdf",
+      "#bfbfbf",
+      "#3f3f3f",
+      "#6c5594"
+    ],
+    "num_categories": 18,
+    "label_key": "Day",
+    "dataset_name": "phate_Circulating_Immune_cells_--_CV19_infection"
+  },
+  "gfju3gzg": {
+    "colors": [
+      "#31688e",
+      "#fde725",
+      "#35b779",
+      "#440154"
+    ],
+    "num_categories": 4,
+    "label_key": "development_stage",
+    "dataset_name": "phate_Core_GBmap_c888b684"
+  },
+  "hrttneik": {
+    "colors": [
+      "#440154",
+      "#fce625"
+    ],
+    "num_categories": 2,
+    "label_key": "development_stage",
+    "dataset_name": "phate_COVID-19_Immune_Altas"
+  },
+  "ir0ts55q": {
+    "colors": [
+      "#31688e",
+      "#35b779",
+      "#440154",
+      "#fce625"
+    ],
+    "num_categories": 4,
+    "label_key": "development_stage",
+    "dataset_name": "phate_landmarks_All_-_A_single-cell_transcriptomic_atlas_character_48b37086"
+  },
+  "lg2wvwg2": {
+    "colors": [
+      "#440154",
+      "#3b528b",
+      "#21918c",
+      "#5ec961",
+      "#fce625"
+    ],
+    "num_categories": 5,
+    "label_key": "development_stage",
+    "dataset_name": "phate_landmarks_All_cells_and_nuclei_093d3bfe"
+  },
+  "taimjr7a": {
+    "colors": [
+      "#fce625",
+      "#21908b",
+      "#440153"
+    ],
+    "num_categories": 3,
+    "label_key": "development_stage",
+    "dataset_name": "phate_landmarks_All_-_A_single-cell_transcriptomic_atlas_character_f16a8f4d"
+  },
+  "jc2q303c": {
+    "colors": [
+      "#fde725",
+      "#21918c",
+      "#440154"
+    ],
+    "num_categories": 3,
+    "label_key": "development_stage",
+    "dataset_name": "phate_Frozen_samples"
+  },
+  "kcmfvuch": {
+    "colors": [
+      "#2a788e",
+      "#7ad151",
+      "#22a884",
+      "#4eb99c",
+      "#440154"
+    ],
+    "num_categories": 6,
+    "label_key": "development_stage",
+    "dataset_name": "phate_HBCA_-_epithelial_975e13b6"
+  },
+  "bgtyjq5k": {
+    "colors": [
+      "#28ae80",
+      "#53be99",
+      "#9f9f9f",
+      "#5f5f5f",
+      "#359b96",
+      "#7f7f7f",
+      "#dfdfdf",
+      "#bfbfbf",
+      "#427898",
+      "#3f3f3f",
+      "#fde939",
+      "#7dd366",
+      "#582c77",
+      "#519ba4",
+      "#26828e",
+      "#eef8f5",
+      "#6c4587"
+    ],
+    "num_categories": 33,
+    "label_key": "development_stage",
+    "dataset_name": "phate_HBCA_-_stroma_be35c935"
+  },
+  "qdtx3lj7": {
+    "colors": [
+      "#fde725",
+      "#31688e",
+      "#440154"
+    ],
+    "num_categories": 4,
+    "label_key": "development_stage",
+    "dataset_name": "phate_landmarks_All_donors_all_cell_states"
+  },
+  "f7hgyqld": {
+    "colors": [
+      "#38588c",
+      "#440154",
+      "#2ab07f",
+      "#25858e",
+      "#482173",
+      "#52c569",
+      "#86d549",
+      "#6079a3",
+      "#9f9f9f",
+      "#5f5f5f"
+    ],
+    "num_categories": 12,
+    "label_key": "cell_type",
+    "dataset_name": "phate_landmarks_An_integrated_transcriptomic_and_epigenomic_atlas_35081d47"
+  },
+  "1i076qdv": {
+    "colors": [
+      "#3b528b",
+      "#440154",
+      "#fde725",
+      "#5dc861",
+      "#6275a2"
+    ],
+    "num_categories": 5,
+    "label_key": "time",
+    "dataset_name": "phate_human_intestine_organoid_cell_atlas_776a1e4a"
+  },
+  "mtnt339e": {
+    "colors": [
+      "#472d7b",
+      "#d8e219",
+      "#3fbc73",
+      "#26828d",
+      "#3b528b",
+      "#5dc862",
+      "#440154",
+      "#addc2f",
+      "#9f9f9f",
+      "#fde725",
+      "#5f5f5f",
+      "#7f7f7f",
+      "#dfdfdf",
+      "#6c5795",
+      "#bfbfbf",
+      "#3f3f3f",
+      "#1fa088"
+    ],
+    "num_categories": 17,
+    "label_key": "cell_type",
+    "dataset_name": "phate_landmarks_A_Single-Cell_Atlas_of_Mouse_White_Adipose_Tissue_a2da8d7b"
+  },
+  "jgb7hdf4": {
+    "colors": [
+      "#31688e",
+      "#fde725",
+      "#440154",
+      "#35b779"
+    ],
+    "num_categories": 4,
+    "label_key": "day",
+    "dataset_name": "phate_landmarks_Atlas_of_the_developing_mouse_thalamus_79a2344d"
+  },
+  "rf1glr7m": {
+    "colors": [
+      "#fde725",
+      "#430154",
+      "#31688e",
+      "#35b779"
+    ],
+    "num_categories": 4,
+    "label_key": "day",
+    "dataset_name": "phate_landmarks_Atlas_of_the_developing_mouse_thalamus_79a2344d"
+  },
+  "869pjesh": {
+    "colors": [
+      "#22a884",
+      "#44bf70",
+      "#440154",
+      "#7ad151",
+      "#fce625",
+      "#4eb99c",
+      "#2a788e",
+      "#414487"
+    ],
+    "num_categories": 11,
+    "label_key": "cell_type",
+    "dataset_name": "phate_HypoMap"
+  },
+  "xkcq8a4h": {
+    "colors": [
+      "#2a788d",
+      "#fce625",
+      "#5593a4",
+      "#9f9f9f",
+      "#fdeb51",
+      "#5f5f5f"
+    ],
+    "num_categories": 6,
+    "label_key": "development_stage",
+    "dataset_name": "phate_HypoMap"
+  },
+  "o9ae7egr": {
+    "colors": [
+      "#35b779",
+      "#5ec962",
+      "#90d743",
+      "#21918c",
+      "#481f70",
+      "#440154",
+      "#443983",
+      "#fde725",
+      "#31688e",
+      "#9f9f9f",
+      "#5f5f5f",
+      "#7ed381",
+      "#693476"
+    ],
+    "num_categories": 13,
+    "label_key": "cell_type",
+    "dataset_name": "phate_HypoMap"
+  },
+  "rsw4eu0y": {
+    "colors": [
+      "#44bf70",
+      "#440154",
+      "#21918c",
+      "#7ad151",
+      "#69cb8c",
+      "#bddf26",
+      "#fde725",
+      "#482475",
+      "#9f9f9f",
+      "#5f5f5f"
+    ],
+    "num_categories": 11,
+    "label_key": "cell_type",
+    "dataset_name": "phate_HypoMap"
+  },
+  "hqy756cn": {
+    "colors": [
+      "#31688d",
+      "#fce625",
+      "#35b779",
+      "#430154"
+    ],
+    "num_categories": 4,
+    "label_key": "development_stage",
+    "dataset_name": "phate_landmarks_All_major_cell_types_in_adult_human_retina_0129dbd9"
+  },
+  "mkfdt77n": {
+    "colors": [
+      "#277f8e",
+      "#3e4788",
+      "#fde725",
+      "#72cf56",
+      "#2db27c",
+      "#9fd939",
+      "#49c06d",
+      "#430154",
+      "#471b6d"
+    ],
+    "num_categories": 15,
+    "label_key": "development_stage",
+    "dataset_name": "phate_landmarks_All-snRNA-Spatial_multi-omic_map_of_human_myocardi_1c739a3e"
+  },
+  "r47q4e3i": {
+    "colors": [
+      "#38588c",
+      "#440154",
+      "#2ab07f",
+      "#482173",
+      "#25858e",
+      "#51c469",
+      "#6079a3",
+      "#693476",
+      "#9f9f9f"
+    ],
+    "num_categories": 12,
+    "label_key": "cell_type",
+    "dataset_name": "phate_landmarks_An_integrated_transcriptomic_and_epigenomic_atlas_35081d47"
+  },
+  "i1iei9es": {
+    "colors": [
+      "#fce625",
+      "#40bd72",
+      "#cce01d",
+      "#34618c",
+      "#98d83d",
+      "#25ac81",
+      "#67cc5b",
+      "#453580",
+      "#66ca8e",
+      "#9f9f9f",
+      "#5f5f5f"
+    ],
+    "num_categories": 14,
+    "label_key": "development_stage",
+    "dataset_name": "phate_landmarks_Airway_edc8d3fe"
+  },
+  "xiv80wh9": {
+    "colors": [
+      "#31678d",
+      "#430154",
+      "#35b779"
+    ],
+    "num_categories": 4,
+    "label_key": "development_stage",
+    "dataset_name": "phate_landmarks_All_-_A_single-cell_transcriptomic_atlas_character_f16a8f4d"
+  },
+  "58mm5d56": {
+    "colors": [
+      "#21918b",
+      "#4da7a3"
+    ],
+    "num_categories": 9,
+    "label_key": "development_stage",
+    "dataset_name": "phate_landmarks_All_Cells_-_snRNA-seq_ac0c6561"
+  },
+  "pvf8bj8q": {
+    "colors": [
+      "#21918b",
+      "#acdb30",
+      "#430154",
+      "#27ad80",
+      "#4da7a3"
+    ],
+    "num_categories": 9,
+    "label_key": "development_stage",
+    "dataset_name": "phate_landmarks_All_Cells_-_snRNA-seq_ac0c6561"
+  },
+  "z43cmneb": {
+    "colors": [
+      "#482173",
+      "#52c569",
+      "#2ab07f",
+      "#25858e",
+      "#440154",
+      "#86d549",
+      "#fde725",
+      "#433e85",
+      "#9f9f9f",
+      "#5f5f5f",
+      "#7f7f7f",
+      "#dfdfdf"
+    ],
+    "num_categories": 12,
+    "label_key": "cell_type",
+    "dataset_name": "phate_HypoMap"
+  },
+  "9848nu07": {
+    "colors": [
+      "#52c569",
+      "#86d549",
+      "#440154",
+      "#482173",
+      "#fde725",
+      "#9f9f9f",
+      "#5f5f5f",
+      "#c2df23",
+      "#1e9b8a",
+      "#433e85",
+      "#9edd6d",
+      "#7f7f7f"
+    ],
+    "num_categories": 12,
+    "label_key": "cell_type",
+    "dataset_name": "phate_HypoMap"
+  },
+  "mjuiw4es": {
+    "colors": [
+      "#44bf70",
+      "#7ad151",
+      "#440154",
+      "#482475",
+      "#21918c",
+      "#bddf26",
+      "#9f9f9f",
+      "#5f5f5f",
+      "#69cb8c",
+      "#7f7f7f",
+      "#dfdfdf"
+    ],
+    "num_categories": 11,
+    "label_key": "cell_type",
+    "dataset_name": "phate_HypoMap"
+  },
+  "oxcxtsyc": {
+    "colors": [
+      "#22a884",
+      "#44bf70",
+      "#440154",
+      "#79d051",
+      "#4eb99c",
+      "#482475",
+      "#9f9f9f",
+      "#5f5f5f"
+    ],
+    "num_categories": 11,
+    "label_key": "cell_type",
+    "dataset_name": "phate_HypoMap"
+  },
+  "37fx6f9o": {
+    "colors": [
+      "#22a884",
+      "#440154",
+      "#2a788e",
+      "#44bf70",
+      "#414487",
+      "#79d051",
+      "#fde725",
+      "#4eb99c",
+      "#9f9f9f"
+    ],
+    "num_categories": 11,
+    "label_key": "cell_type",
+    "dataset_name": "phate_HypoMap"
+  },
+  "25137olm": {
+    "colors": [
+      "#440154",
+      "#551863",
+      "#693476",
+      "#fce625"
+    ],
+    "num_categories": 4,
+    "label_key": "development_stage",
+    "dataset_name": "phate_HypoMap"
+  },
+  "bj4xdfdk": {
+    "colors": [
+      "#28ae80",
+      "#21918c",
+      "#2c728e",
+      "#440154",
+      "#fde725",
+      "#472d7b",
+      "#9f9f9f",
+      "#5f5f5f",
+      "#7f7f7f"
+    ],
+    "num_categories": 9,
+    "label_key": "cell_type",
+    "dataset_name": "phate_HypoMap"
+  },
+  "hbwe2f2o": {
+    "colors": [
+      "#4ac16d",
+      "#a0da39",
+      "#fde725",
+      "#46327e",
+      "#9f9f9f",
+      "#5f5f5f",
+      "#277f8e",
+      "#440154"
+    ],
+    "num_categories": 8,
+    "label_key": "cell_type",
+    "dataset_name": "phate_HypoMap"
+  },
+  "5rwt7sjh": {
+    "colors": [
+      "#2ab07f",
+      "#52c569",
+      "#25858e",
+      "#440154",
+      "#482173",
+      "#86d549",
+      "#9f9f9f",
+      "#5f5f5f",
+      "#7f7f7f",
+      "#dfdfdf",
+      "#433e85",
+      "#bfbfbf"
+    ],
+    "num_categories": 12,
+    "label_key": "cell_type",
+    "dataset_name": "phate_HypoMap"
+  },
+  "nl9cm8x5": {
+    "colors": [
+      "#64ca5e",
+      "#21a585",
+      "#46c06e",
+      "#471769",
+      "#345e8d",
+      "#88d448",
+      "#23888d",
+      "#d7e119",
+      "#423d84",
+      "#430154",
+      "#fce625",
+      "#9f9f9f",
+      "#5f5f5f"
+    ],
+    "num_categories": 18,
+    "label_key": "development_stage",
+    "dataset_name": "phate_landmarks_Blood_d86edd6a"
+  },
+  "xd6zv24b": {
+    "colors": [
+      "#fce625",
+      "#21908b",
+      "#430154"
+    ],
+    "num_categories": 3,
+    "label_key": "development_stage",
+    "dataset_name": "phate_landmarks_Dissection"
+  },
+  "mhp4gypd": {
+    "colors": [
+      "#c2df23",
+      "#fce625",
+      "#2ab07f",
+      "#37588b",
+      "#52c568",
+      "#85d449",
+      "#433d84",
+      "#472173",
+      "#9f9f9f",
+      "#25848d",
+      "#5f5f5f"
+    ],
+    "num_categories": 12,
+    "label_key": "development_stage",
+    "dataset_name": "phate_landmarks_Figure_1_-_A_cell_atlas_of_human_thymic_developmen_cda2c8cd"
+  },
+  "z9eiaxwp": {
+    "colors": [
+      "#461365",
+      "#1f968a",
+      "#2c728d",
+      "#9f9f9f",
+      "#5f5f5f",
+      "#3c4e89",
+      "#7f7f7f",
+      "#dfdfdf",
+      "#bfbfbf",
+      "#3f3f3f",
+      "#9fd939",
+      "#64ca5e",
+      "#34b679",
+      "#582973"
+    ],
+    "num_categories": 22,
+    "label_key": "development_stage",
+    "dataset_name": "phate_landmarks_Blood_d86edd6a"
+  },
+  "flhsj4vc": {
+    "colors": [
+      "#5dc862",
+      "#440154",
+      "#fce625"
+    ],
+    "num_categories": 5,
+    "label_key": "development_stage",
+    "dataset_name": "phate_landmarks_Carebank_8f4f8502"
+  },
+  "qrcpusdw": {
+    "colors": [
+      "#79d051",
+      "#2a788d",
+      "#414386",
+      "#430154"
+    ],
+    "num_categories": 6,
+    "label_key": "development_stage",
+    "dataset_name": "phate_landmarks_ClassNeuroblast_e59a4394"
+  },
+  "aupu8aow": {
+    "colors": [
+      "#44bf70",
+      "#7ad151",
+      "#482475",
+      "#414487",
+      "#440154",
+      "#bddf26",
+      "#9f9f9f",
+      "#5f5f5f",
+      "#69cb8c",
+      "#21918c",
+      "#7f7f7f"
+    ],
+    "num_categories": 11,
+    "label_key": "cell_type",
+    "dataset_name": "phate_HypoMap"
+  },
+  "me8m4h4v": {
+    "colors": [
+      "#c2df23",
+      "#38578b",
+      "#fde725",
+      "#2ab07e",
+      "#472173",
+      "#51c469",
+      "#24858d",
+      "#9f9f9f"
+    ],
+    "num_categories": 12,
+    "label_key": "development_stage",
+    "dataset_name": "phate_landmarks_Figure_1_-_A_cell_atlas_of_human_thymic_developmen_cda2c8cd"
+  },
+  "dph06vzz": {
+    "colors": [
+      "#481467",
+      "#94d740",
+      "#fde725",
+      "#1f968a",
+      "#55c567",
+      "#bade28",
+      "#9f9f9f",
+      "#3f4688",
+      "#5f5f5f",
+      "#4caba2",
+      "#aadf66",
+      "#3b8898",
+      "#78d185",
+      "#7f7f7f",
+      "#dfdfdf"
+    ],
+    "num_categories": 20,
+    "label_key": "development_stage",
+    "dataset_name": "phate_landmarks_HBCA_-_epithelial_975e13b6"
+  },
+  "xfezagt9": {
+    "colors": [
+      "#1fa088",
+      "#472d7b",
+      "#3ebb73",
+      "#3b528b",
+      "#440154",
+      "#d8e219",
+      "#fce625",
+      "#83d34b",
+      "#5dc862",
+      "#2b728d",
+      "#acdb30",
+      "#65c98f",
+      "#9f9f9f",
+      "#5f5f5f",
+      "#4cb3a0"
+    ],
+    "num_categories": 17,
+    "label_key": "development_stage",
+    "dataset_name": "phate_landmarks_HBCA_-_epithelial_975e13b6"
+  },
+  "x9iextak": {
+    "colors": [
+      "#cde11d",
+      "#24878e",
+      "#fde725",
+      "#67cc5c",
+      "#481c6e",
+      "#25ac82",
+      "#443581",
+      "#40bd72",
+      "#97d73e",
+      "#34618d"
+    ],
+    "num_categories": 14,
+    "label_key": "time",
+    "dataset_name": "phate_landmarks_human_intestine_organoid_cell_atlas_776a1e4a"
+  },
+  "todc2h7z": {
+    "colors": [
+      "#b5de2b",
+      "#6ece58",
+      "#35b779",
+      "#430154",
+      "#26818d",
+      "#fde725",
+      "#472878",
+      "#3d4989"
+    ],
+    "num_categories": 10,
+    "label_key": "development_stage",
+    "dataset_name": "phate_landmarks_Human_Female_18e2a8c5"
+  },
+  "pga3n3z2": {
+    "colors": [
+      "#a0da39",
+      "#45327e",
+      "#430154",
+      "#73d056",
+      "#277e8d",
+      "#fce625",
+      "#d0e11c",
+      "#2db27d",
+      "#355c8c",
+      "#49c06d",
+      "#9f9f9f",
+      "#5f5f5f"
+    ],
+    "num_categories": 15,
+    "label_key": "development_stage",
+    "dataset_name": "phate_landmarks_Human_Somatic_Cell_Lineage_4fb330ab"
+  },
+  "j1lg8xf7": {
+    "colors": [
+      "#21918c",
+      "#fde725",
+      "#440154"
+    ],
+    "num_categories": 3,
+    "label_key": "development_stage",
+    "dataset_name": "phate_Intestine_cbec7853"
+  },
+  "bpssey6l": {
+    "colors": [
+      "#21918c",
+      "#440154",
+      "#fde725"
+    ],
+    "num_categories": 3,
+    "label_key": "development_stage",
+    "dataset_name": "phate_Intestine_cbec7853"
+  },
+  "bi73yxy7": {
+    "colors": [
+      "#21918c",
+      "#440154",
+      "#5ec962",
+      "#3b528b",
+      "#fde725"
+    ],
+    "num_categories": 5,
+    "label_key": "development_stage",
+    "dataset_name": "phate_Kidney_f95d8919"
+  },
+  "ftk74qpr": {
+    "colors": [
+      "#fde725",
+      "#4ac16d",
+      "#46327d",
+      "#277f8d",
+      "#365c8d",
+      "#fdeb51",
+      "#5298a4"
+    ],
+    "num_categories": 8,
+    "label_key": "development_stage",
+    "dataset_name": "phate_Kidney_f95d8919"
+  },
+  "5eyadhoz": {
+    "colors": [
+      "#440154",
+      "#fde725",
+      "#21918c"
+    ],
+    "num_categories": 3,
+    "label_key": "development_stage",
+    "dataset_name": "phate_L2_3_IT_-_DLPFC"
+  },
+  "j6ku6sak": {
+    "colors": [
+      "#fde725",
+      "#440154",
+      "#21918c"
+    ],
+    "num_categories": 5,
+    "label_key": "development_stage",
+    "dataset_name": "phate_L2_3_IT_-_MTG"
+  },
+  "lyeani14": {
+    "colors": [
+      "#2c728e",
+      "#fce625",
+      "#472d7b",
+      "#3b528b",
+      "#3bb58b",
+      "#568ea4",
+      "#5ec961",
+      "#9f9f9f",
+      "#fdeb51"
+    ],
+    "num_categories": 9,
+    "label_key": "development_stage",
+    "dataset_name": "phate_Liver_1d89d081"
+  },
+  "fd2ytt7c": {
+    "colors": [
+      "#21918c",
+      "#fde725",
+      "#5ec962",
+      "#3b528b",
+      "#440154"
+    ],
+    "num_categories": 5,
+    "label_key": "development_stage",
+    "dataset_name": "phate_Liver_1d89d081"
+  },
+  "u7ozb5v7": {
+    "colors": [
+      "#c2df23",
+      "#2d708e",
+      "#9f9f9f",
+      "#5f5f5f",
+      "#cee54f",
+      "#2ab07f",
+      "#399098",
+      "#578ca4",
+      "#7f7f7f",
+      "#dfdfdf",
+      "#bfbfbf",
+      "#3f3f3f"
+    ],
+    "num_categories": 12,
+    "label_key": "cell_type",
+    "dataset_name": "phate_Mouse_pancreatic_islet_scRNA-seq_atlas_across_sexe_49e4ffcc"
+  },
+  "vijgg85a": {
+    "colors": [
+      "#c2df23",
+      "#2d708e",
+      "#52c569",
+      "#1e9b8a",
+      "#433e85",
+      "#9f9f9f",
+      "#5f5f5f",
+      "#cee54f",
+      "#75d087",
+      "#399098",
+      "#7f7f7f",
+      "#dfdfdf"
+    ],
+    "num_categories": 12,
+    "label_key": "cell_type",
+    "dataset_name": "phate_Mouse_pancreatic_islet_scRNA-seq_atlas_across_sexe_49e4ffcc"
+  },
+  "szcxjjka": {
+    "colors": [
+      "#c2df23",
+      "#482173",
+      "#2d708e",
+      "#433e85",
+      "#52c569",
+      "#86d549",
+      "#cee54f",
+      "#9f9f9f",
+      "#5f5f5f",
+      "#2ab07f"
+    ],
+    "num_categories": 12,
+    "label_key": "cell_type",
+    "dataset_name": "phate_Mouse_pancreatic_islet_scRNA-seq_atlas_across_sexe_49e4ffcc"
+  },
+  "vm8hpkcn": {
+    "colors": [
+      "#c2df23",
+      "#38588c",
+      "#52c569",
+      "#25858e",
+      "#482173",
+      "#86d549",
+      "#75d087",
+      "#9f9f9f",
+      "#5f5f5f"
+    ],
+    "num_categories": 12,
+    "label_key": "cell_type",
+    "dataset_name": "phate_Mouse_pancreatic_islet_scRNA-seq_atlas_across_sexe_49e4ffcc"
+  },
+  "jgpg2gq1": {
+    "colors": [
+      "#31688e",
+      "#fde725",
+      "#90d743",
+      "#443983",
+      "#21918c",
+      "#35b779",
+      "#9f9f9f"
+    ],
+    "num_categories": 7,
+    "label_key": "cell_type",
+    "dataset_name": "phate_Oral_and_Craniofacial_Atlas_cb252df6"
+  },
+  "7patvxfh": {
+    "colors": [
+      "#35b779",
+      "#fde725",
+      "#31688d",
+      "#fdeb51"
+    ],
+    "num_categories": 7,
+    "label_key": "cell_type",
+    "dataset_name": "phate_Oral_and_Craniofacial_Atlas_cb252df6"
+  },
+  "vxhdb8rt": {
+    "colors": [
+      "#35b779",
+      "#31688e",
+      "#440154",
+      "#693476"
+    ],
+    "num_categories": 4,
+    "label_key": "development_stage",
+    "dataset_name": "phate_Oral_and_Craniofacial_Atlas_cb252df6"
+  },
+  "2bojbcl0": {
+    "colors": [
+      "#2c718d",
+      "#440154",
+      "#28ae80",
+      "#5dc862",
+      "#462c7a",
+      "#fce625",
+      "#9f9f9f",
+      "#5f5f5f",
+      "#addc30"
+    ],
+    "num_categories": 9,
+    "label_key": "development_stage",
+    "dataset_name": "phate_Oral_and_Craniofacial_Atlas_cb252df6"
+  },
+  "0pei06l2": {
+    "colors": [
+      "#46327e",
+      "#277f8e",
+      "#440154",
+      "#4ac16d",
+      "#365c8d",
+      "#a0da39",
+      "#1fa187",
+      "#5298a4"
+    ],
+    "num_categories": 8,
+    "label_key": "cell_type",
+    "dataset_name": "phate_Oral_and_Craniofacial_Atlas_cb252df6"
+  },
+  "c2fli5ei": {
+    "colors": [
+      "#482173",
+      "#6d4d8f",
+      "#5b3881",
+      "#9f9f9f"
+    ],
+    "num_categories": 12,
+    "label_key": "cell_type",
+    "dataset_name": "phate_plaque_atlas_72955cdb"
+  },
+  "nmnskze6": {
+    "colors": [
+      "#fde725",
+      "#47bd85",
+      "#fdeb51"
+    ],
+    "num_categories": 4,
+    "label_key": "development_stage",
+    "dataset_name": "phate_Oral_and_Craniofacial_Atlas_cb252df6"
+  },
+  "34eq5lwv": {
+    "colors": [
+      "#482173",
+      "#52c569",
+      "#440154",
+      "#25858e",
+      "#433e85",
+      "#29af7f",
+      "#9f9f9f",
+      "#5f5f5f",
+      "#69659d",
+      "#7f7f7f",
+      "#dfdfdf",
+      "#bfbfbf"
+    ],
+    "num_categories": 12,
+    "label_key": "cell_type",
+    "dataset_name": "phate_plaque_atlas_72955cdb"
+  },
+  "ojnpngy6": {
+    "colors": [
+      "#482878",
+      "#1f9e89",
+      "#440154",
+      "#9f9f9f",
+      "#5f5f5f",
+      "#447698",
+      "#7f7f7f",
+      "#dfdfdf",
+      "#bfbfbf",
+      "#3f3f3f"
+    ],
+    "num_categories": 10,
+    "label_key": "cell_type",
+    "dataset_name": "phate_plaque_atlas_72955cdb"
+  },
+  "3cnze52z": {
+    "colors": [
+      "#482173",
+      "#52c569",
+      "#2ab07f",
+      "#25858e",
+      "#433e85",
+      "#440154",
+      "#c2df23",
+      "#9f9f9f",
+      "#5f5f5f",
+      "#6d4d8f"
+    ],
+    "num_categories": 12,
+    "label_key": "cell_type",
+    "dataset_name": "phate_plaque_atlas_72955cdb"
+  },
+  "9iddngju": {
+    "colors": [
+      "#440154",
+      "#21918c",
+      "#fce625"
+    ],
+    "num_categories": 3,
+    "label_key": "development_stage",
+    "dataset_name": "phate_plaque_atlas_72955cdb"
+  },
+  "y9n3gzwr": {
+    "colors": [
+      "#38588c",
+      "#fde725",
+      "#482173",
+      "#25858e",
+      "#9f9f9f",
+      "#5f5f5f",
+      "#7f7f7f",
+      "#dfdfdf",
+      "#bfbfbf",
+      "#519da4",
+      "#3f3f3f",
+      "#fdeb51"
+    ],
+    "num_categories": 12,
+    "label_key": "cell_type",
+    "dataset_name": "phate_plaque_atlas_72955cdb"
+  },
+  "zy06go0t": {
+    "colors": [
+      "#482173",
+      "#25858e",
+      "#86d549",
+      "#52c569",
+      "#440154",
+      "#2ab07f",
+      "#433e85",
+      "#6d4d8f",
+      "#9f9f9f",
+      "#5f5f5f"
+    ],
+    "num_categories": 12,
+    "label_key": "cell_type",
+    "dataset_name": "phate_plaque_atlas_72955cdb"
+  },
+  "p10hw1mc": {
+    "colors": [
+      "#21918c",
+      "#fce625",
+      "#440153"
+    ],
+    "num_categories": 3,
+    "label_key": "development_stage",
+    "dataset_name": "phate_plaque_atlas_72955cdb"
+  },
+  "87p77tev": {
+    "colors": [
+      "#21918c",
+      "#440154",
+      "#fce625"
+    ],
+    "num_categories": 3,
+    "label_key": "development_stage",
+    "dataset_name": "phate_scRNA-seq_of_human_retina_-_all_cells_be41a86a"
+  },
+  "ubva857f": {
+    "colors": [
+      "#440154",
+      "#fde725",
+      "#21918c"
+    ],
+    "num_categories": 3,
+    "label_key": "development_stage",
+    "dataset_name": "phate_scRNA-seq_of_human_retina_-_all_cells_be41a86a"
+  },
+  "z6sy487k": {
+    "colors": [
+      "#a0da39",
+      "#b3e161",
+      "#9f9f9f",
+      "#417b98",
+      "#5f5f5f",
+      "#80d466",
+      "#564489",
+      "#7f7f7f",
+      "#dfdfdf",
+      "#588ba4",
+      "#bfbfbf",
+      "#3f3f3f",
+      "#6b5b98",
+      "#d4e331"
+    ],
+    "num_categories": 15,
+    "label_key": "development_stage",
+    "dataset_name": "phate_Single-cell_RNA-seq_of_the_Adult_Human_Kidney"
+  },
+  "khsvs957": {
+    "colors": [
+      "#fde725",
+      "#440154",
+      "#277f8e",
+      "#365c8d",
+      "#46327e",
+      "#fdeb51",
+      "#4ac16d",
+      "#5e7da4"
+    ],
+    "num_categories": 8,
+    "label_key": "development_stage",
+    "dataset_name": "phate_Skeletal_muscle_15d374d6"
+  },
+  "hkz3znma": {
+    "colors": [
+      "#a0da39",
+      "#365c8d",
+      "#1fa187",
+      "#4ac16d",
+      "#440154",
+      "#277f8e",
+      "#9f9f9f",
+      "#5f5f5f"
+    ],
+    "num_categories": 8,
+    "label_key": "cell_type",
+    "dataset_name": "phate_Skeletal_muscle_15d374d6"
+  },
+  "7r39zw2v": {
+    "colors": [
+      "#fde725",
+      "#21918c",
+      "#440154"
+    ],
+    "num_categories": 3,
+    "label_key": "development_stage",
+    "dataset_name": "phate_Skeletal_muscle_15d374d6"
+  },
+  "xc3ikrwv": {
+    "colors": [
+      "#35b778",
+      "#267f8d",
+      "#c0df25",
+      "#482374",
+      "#dfe318",
+      "#414086",
+      "#9f9f9f",
+      "#5f5f5f",
+      "#365c8d",
+      "#7f7f7f",
+      "#dfdfdf",
+      "#bfbfbf",
+      "#3f3f3f",
+      "#64ca5e",
+      "#5dc594",
+      "#5298a4",
+      "#68669e"
+    ],
+    "num_categories": 22,
+    "label_key": "cell_type",
+    "dataset_name": "phate_Spleen_72f4798d"
+  },
+  "4i64jo1b": {
+    "colors": [
+      "#3f4788",
+      "#4ac16d",
+      "#21918c",
+      "#9f9f9f",
+      "#6ecd8a",
+      "#5f5f5f",
+      "#41b989",
+      "#656ca0",
+      "#7f7f7f",
+      "#dfdfdf",
+      "#4da7a3",
+      "#bfbfbf",
+      "#3f3f3f"
+    ],
+    "num_categories": 29,
+    "label_key": "cell_type",
+    "dataset_name": "phate_thymus_scRNA-seq_atlas_29244e1d"
+  },
+  "sw5833c9": {
+    "colors": [
+      "#470d60",
+      "#297b8e",
+      "#50c46a",
+      "#a2da37",
+      "#31b57b",
+      "#e9e41a",
+      "#9f9f9f",
+      "#5f5f5f",
+      "#58236e",
+      "#6c3e80",
+      "#5495a4",
+      "#7f7f7f",
+      "#dfdfdf",
+      "#bfbfbf",
+      "#3f3f3f",
+      "#3c4f8a"
+    ],
+    "num_categories": 30,
+    "label_key": "cell_type",
+    "dataset_name": "phate_UMAP_of_Cancer_Data_integration_7bb64315"
+  },
+  "whbf35o3": {
+    "colors": [
+      "#fde725",
+      "#21918c",
+      "#5ec962",
+      "#fdeb51",
+      "#440154"
+    ],
+    "num_categories": 5,
+    "label_key": "development_stage",
+    "dataset_name": "phate_UMAP_of_Cancer_Data_integration_7bb64315"
+  },
+  "mtm0vulw": {
+    "colors": [
+      "#53c468",
+      "#a5db36",
+      "#d2e21b",
+      "#fde725",
+      "#22a883",
+      "#9f9f9f",
+      "#b7e25e",
+      "#5f5f5f"
+    ],
+    "num_categories": 16,
+    "label_key": "cluster_id",
+    "dataset_name": "phate_Supercluster"
+  },
+  "02ruh2dp": {
+    "colors": [
+      "#86d561",
+      "#3d8498",
+      "#fde939",
+      "#67699f",
+      "#5593a4",
+      "#525592"
+    ],
+    "num_categories": 6,
+    "label_key": "cluster_id",
+    "dataset_name": "phate_Supercluster"
+  },
+  "9w702ajj": {
+    "colors": [
+      "#72cf56",
+      "#365c8d",
+      "#a0da39",
+      "#d4e331",
+      "#b3e161",
+      "#9f9f9f",
+      "#481b6d",
+      "#5f5f5f"
+    ],
+    "num_categories": 16,
+    "label_key": "cluster_id",
+    "dataset_name": "phate_Supercluster"
+  },
+  "klt37r9j": {
+    "colors": [
+      "#1f9f88",
+      "#86d561",
+      "#cae11f",
+      "#40b88a",
+      "#9f9f9f",
+      "#453781",
+      "#5f5f5f",
+      "#6c4082",
+      "#582671",
+      "#4ec36b",
+      "#e7e62e",
+      "#aadf66",
+      "#7f7f7f",
+      "#dfdfdf",
+      "#d4e74c",
+      "#bfbfbf",
+      "#82d57f",
+      "#3f3f3f"
+    ],
+    "num_categories": 26,
+    "label_key": "cluster_id",
+    "dataset_name": "phate_Supercluster"
+  },
+  "us7dlbp4": {
+    "colors": [
+      "#21918c",
+      "#37b08f",
+      "#9f9f9f",
+      "#5f5f5f",
+      "#44bf70",
+      "#eff8f6",
+      "#5dc862",
+      "#345f8d"
+    ],
+    "num_categories": 21,
+    "label_key": "cluster_id",
+    "dataset_name": "phate_Supercluster"
+  },
+  "ifq1rvs1": {
+    "colors": [
+      "#35b779",
+      "#440154",
+      "#fde725"
+    ],
+    "num_categories": 4,
+    "label_key": "Region",
+    "dataset_name": "phate_ClassNeuroblast_e59a4394"
+  },
+  "26vrwhd6": {
+    "colors": [
+      "#fde725",
+      "#440153"
+    ],
+    "num_categories": 2,
+    "label_key": "development_stage",
+    "dataset_name": "phate_Combined_single_cell_and_single_nuclei_RNA-Seq_dat_d567b692"
+  },
+  "8b4kpvv2": {
+    "colors": [
+      "#fde725",
+      "#440154",
+      "#551863"
+    ],
+    "num_categories": 4,
+    "label_key": "Region",
+    "dataset_name": "phate_ClassNeuroblast_e59a4394"
+  },
+  "h8lst1lj": {
+    "colors": [
+      "#38588c",
+      "#52c569",
+      "#482173",
+      "#fde725",
+      "#2ab07f",
+      "#86d549",
+      "#c2df23",
+      "#440154",
+      "#9f9f9f",
+      "#5f5f5f",
+      "#6079a3",
+      "#7f7f7f"
+    ],
+    "num_categories": 12,
+    "label_key": "cell_type",
+    "dataset_name": "phate_Combined_single_cell_and_single_nuclei_RNA-Seq_dat_d567b692"
+  },
+  "j40f4k3j": {
+    "colors": [
+      "#21918b",
+      "#440154",
+      "#fce625"
+    ],
+    "num_categories": 3,
+    "label_key": "development_stage",
+    "dataset_name": "phate_Combined_single_cell_and_single_nuclei_RNA-Seq_dat_d567b692"
+  },
+  "k7y91hzc": {
+    "colors": [
+      "#26828e",
+      "#51c280",
+      "#365b8d",
+      "#4da7a3",
+      "#9f9f9f",
+      "#5f5f5f",
+      "#427898",
+      "#470d60",
+      "#7f7f7f",
+      "#dfdfdf",
+      "#bfbfbf",
+      "#5988a4",
+      "#3f3f3f",
+      "#30b27b",
+      "#ece51b"
+    ],
+    "num_categories": 33,
+    "label_key": "development_stage",
+    "dataset_name": "phate_HBCA_-_stroma_be35c935"
+  },
+  "xk2v6e6h": {
+    "colors": [
+      "#fde725",
+      "#440154"
+    ],
+    "num_categories": 2,
+    "label_key": "development_stage",
+    "dataset_name": "phate_Combined_single_cell_and_single_nuclei_RNA-Seq_dat_d567b692"
+  },
+  "umcmz7bb": {
+    "colors": [
+      "#fde725",
+      "#440154"
+    ],
+    "num_categories": 2,
+    "label_key": "development_stage",
+    "dataset_name": "phate_DCM_ACM_heart_cell_atlas"
+  },
+  "n7ze79w5": {
+    "colors": [
+      "#fde725",
+      "#20938c",
+      "#433d84",
+      "#2db27c",
+      "#34618d",
+      "#450a5d",
+      "#9f9f9f",
+      "#5f5f5f",
+      "#76d053",
+      "#fdeb51",
+      "#4bc16c",
+      "#7f7f7f",
+      "#dfdfdf",
+      "#bfbfbf",
+      "#3f3f3f",
+      "#a9db32"
+    ],
+    "num_categories": 40,
+    "label_key": "development_stage",
+    "dataset_name": "phate_landmarks_Core_GBmap_c888b684"
+  },
+  "tm2eg86f": {
+    "colors": [
+      "#21918c",
+      "#fde725",
+      "#440154",
+      "#3b528b",
+      "#5ec962"
+    ],
+    "num_categories": 5,
+    "label_key": "development_stage",
+    "dataset_name": "phate_landmarks_Frozen_samples"
+  },
+  "txb1v6gw": {
+    "colors": [
+      "#fde725",
+      "#81d34d",
+      "#1f9a8a",
+      "#440154",
+      "#29798e",
+      "#38b977",
+      "#453882",
+      "#9f9f9f",
+      "#5f5f5f",
+      "#7f7f7f",
+      "#dfdfdf",
+      "#bfbfbf",
+      "#3f3f3f",
+      "#4da8a3"
+    ],
+    "num_categories": 38,
+    "label_key": "development_stage",
+    "dataset_name": "phate_landmarks_Core_GBmap_c888b684"
+  },
+  "45gz9ik4": {
+    "colors": [
+      "#1f998a",
+      "#481c6e",
+      "#fce625",
+      "#3d4d8a",
+      "#40bd72",
+      "#67cc5c",
+      "#cde11d",
+      "#2b748e",
+      "#97d73e",
+      "#440154"
+    ],
+    "num_categories": 14,
+    "label_key": "development_stage",
+    "dataset_name": "phate_landmarks_Frozen_samples"
+  },
+  "vuq0xg6q": {
+    "colors": [
+      "#fde725",
+      "#440154",
+      "#21918c"
+    ],
+    "num_categories": 3,
+    "label_key": "development_stage",
+    "dataset_name": "phate_landmarks_Frozen_samples"
+  },
+  "93xeru10": {
+    "colors": [
+      "#fde725",
+      "#440154",
+      "#21908b"
+    ],
+    "num_categories": 5,
+    "label_key": "Region",
+    "dataset_name": "phate_ClassNeuroblast_e59a4394"
+  },
+  "a7saxjdt": {
+    "colors": [
+      "#21918c",
+      "#3b528b",
+      "#440154",
+      "#5ec962"
+    ],
+    "num_categories": 5,
+    "label_key": "Region",
+    "dataset_name": "phate_ClassNeuroblast_e59a4394"
+  },
+  "c2m1hfsj": {
+    "colors": [
+      "#fde725",
+      "#fdeb51"
+    ],
+    "num_categories": 4,
+    "label_key": "Region",
+    "dataset_name": "phate_ClassNeuroblast_e59a4394"
+  },
+  "ddinlzuc": {
+    "colors": [
+      "#fde725",
+      "#440154",
+      "#5ec962",
+      "#21918c"
+    ],
+    "num_categories": 5,
+    "label_key": "Region",
+    "dataset_name": "phate_ClassNeuroblast_e59a4394"
+  },
+  "rnivey5v": {
+    "colors": [
+      "#440154",
+      "#fde725"
+    ],
+    "num_categories": 2,
+    "label_key": "development_stage",
+    "dataset_name": "phate_Combined_single_cell_and_single_nuclei_RNA-Seq_dat_d567b692"
+  },
+  "3haonrc6": {
+    "colors": [
+      "#440154"
+    ],
+    "num_categories": 1,
+    "label_key": "cell_type",
+    "dataset_name": "phate_ClassNeuroblast_e59a4394"
+  },
+  "kqwx8wuv": {
+    "colors": [
+      "#21918c",
+      "#fde725"
+    ],
+    "num_categories": 3,
+    "label_key": "Region",
+    "dataset_name": "phate_ClassNeuroblast_e59a4394"
+  },
+  "2gdnmeuo": {
+    "colors": [
+      "#440154",
+      "#4ac16d",
+      "#46327e",
+      "#a0da39",
+      "#277f8e",
+      "#fde725",
+      "#1fa187",
+      "#365c8c"
+    ],
+    "num_categories": 8,
+    "label_key": "development_stage",
+    "dataset_name": "phate_landmarks_DCM_ACM_heart_cell_atlas"
+  },
+  "4mtpdaj6": {
+    "colors": [
+      "#440154",
+      "#fde725",
+      "#35b779",
+      "#31688e",
+      "#90d743",
+      "#21918c",
+      "#9f9f9f"
+    ],
+    "num_categories": 7,
+    "label_key": "development_stage",
+    "dataset_name": "phate_landmarks_DCM_ACM_heart_cell_atlas"
+  },
+  "ksz9qgzo": {
+    "colors": [
+      "#297a8e",
+      "#3fbc73",
+      "#28ad80",
+      "#ebe41b",
+      "#48186a",
+      "#97d73e",
+      "#3a528a",
+      "#9f9f9f",
+      "#5f5f5f",
+      "#7f7f7f",
+      "#dfdfdf",
+      "#bfbfbf",
+      "#3f3f3f"
+    ],
+    "num_categories": 33,
+    "label_key": "development_stage",
+    "dataset_name": "phate_landmarks_HBCA_-_stroma_be35c935"
+  },
+  "p36jlo05": {
+    "colors": [
+      "#440154",
+      "#fde725"
+    ],
+    "num_categories": 2,
+    "label_key": "development_stage",
+    "dataset_name": "phate_landmarks_Global_1b9d8702"
+  },
+  "un8vkzwx": {
+    "colors": [
+      "#26828e",
+      "#48186a",
+      "#3fbc73",
+      "#9f9f9f",
+      "#5f5f5f",
+      "#32638c",
+      "#7f7f7f",
+      "#dfdfdf",
+      "#ebe41b",
+      "#bfbfbf",
+      "#3f3f3f",
+      "#44327c"
+    ],
+    "num_categories": 33,
+    "label_key": "development_stage",
+    "dataset_name": "phate_landmarks_HBCA_-_stroma_be35c935"
+  },
+  "e1grg8u0": {
+    "colors": [
+      "#fde725",
+      "#21918c",
+      "#440154",
+      "#5ec962"
+    ],
+    "num_categories": 5,
+    "label_key": "cell_type",
+    "dataset_name": "phate_Frozen_samples"
+  },
+  "ledk69m3": {
+    "colors": [
+      "#277f8e",
+      "#fde725",
+      "#46327e",
+      "#440154",
+      "#9f9f9f",
+      "#5298a4",
+      "#5f5f5f"
+    ],
+    "num_categories": 8,
+    "label_key": "cell_type",
+    "dataset_name": "phate_Frozen_samples"
+  },
+  "ntz99vas": {
+    "colors": [
+      "#21918c",
+      "#fde725",
+      "#440154"
+    ],
+    "num_categories": 3,
+    "label_key": "development_stage",
+    "dataset_name": "phate_Frozen_samples"
+  }
+}

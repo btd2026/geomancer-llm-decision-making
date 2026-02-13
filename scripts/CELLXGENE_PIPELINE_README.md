@@ -6,10 +6,10 @@ This directory contains scripts for building and enriching the papers database w
 
 The CELLxGENE pipeline consists of three main scripts:
 
-1. **`migrate_schema_for_cellxgene.py`**: Schema migration to add CELLxGENE-specific columns
-2. **`build_database_from_cellxgene.py`**: Main pipeline to populate database from CELLxGENE metadata
-3. **`generate_llm_descriptions.py`**: Generate AI-powered descriptions (to be implemented)
-4. **`extract_algorithms_from_papers.py`**: Extract algorithm information from papers (to be implemented)
+1. **`database/migrate_schema_for_cellxgene.py`**: Schema migration to add CELLxGENE-specific columns
+2. **`data_collection/build_database_from_cellxgene.py`**: Main pipeline to populate database from CELLxGENE metadata
+3. **`llm_processing/generate_llm_descriptions.py`**: Generate AI-powered descriptions (to be implemented)
+4. **`llm_processing/extract_algorithms_from_papers.py`**: Extract algorithm information from papers (to be implemented)
 
 ## Prerequisites
 
@@ -38,7 +38,7 @@ The pipeline uses NCBI E-utilities API to fetch paper metadata. Make sure:
 **First time setup** - add CELLxGENE columns to database:
 
 ```bash
-python scripts/migrate_schema_for_cellxgene.py
+python scripts/database/migrate_schema_for_cellxgene.py
 ```
 
 This script is **idempotent** - safe to run multiple times. It will:
@@ -69,16 +69,16 @@ Migrating papers table...
 
 ```bash
 # Dry run (no database changes)
-python scripts/build_database_from_cellxgene.py --dry-run --limit 10
+python scripts/data_collection/build_database_from_cellxgene.py --dry-run --limit 10
 
 # Real run with limit
-python scripts/build_database_from_cellxgene.py --limit 100
+python scripts/data_collection/build_database_from_cellxgene.py --limit 100
 ```
 
 **Full production run:**
 
 ```bash
-python scripts/build_database_from_cellxgene.py
+python scripts/data_collection/build_database_from_cellxgene.py
 ```
 
 This will:
@@ -208,7 +208,7 @@ processing:
 ### build_database_from_cellxgene.py
 
 ```bash
-python scripts/build_database_from_cellxgene.py [OPTIONS]
+python scripts/data_collection/build_database_from_cellxgene.py [OPTIONS]
 
 Options:
   --config PATH       Path to config YAML (default: config/pipeline_config.yaml)
@@ -224,16 +224,16 @@ Options:
 
 ```bash
 # Test with dry run
-python scripts/build_database_from_cellxgene.py --dry-run --limit 5
+python scripts/data_collection/build_database_from_cellxgene.py --dry-run --limit 5
 
 # Process first 100 rows with verbose output
-python scripts/build_database_from_cellxgene.py --limit 100 --verbose
+python scripts/data_collection/build_database_from_cellxgene.py --limit 100 --verbose
 
 # Use custom configuration
-python scripts/build_database_from_cellxgene.py --config my_config.yaml
+python scripts/data_collection/build_database_from_cellxgene.py --config my_config.yaml
 
 # Full production run
-python scripts/build_database_from_cellxgene.py
+python scripts/data_collection/build_database_from_cellxgene.py
 ```
 
 ## Resume Capability
@@ -248,13 +248,13 @@ The pipeline supports **automatic resume** - it checks for existing records:
 
 ```bash
 # First run: Insert 10 papers, 25 datasets
-python scripts/build_database_from_cellxgene.py --limit 50
+python scripts/data_collection/build_database_from_cellxgene.py --limit 50
 
 # Second run (same limit): Update 10 papers, skip 25 datasets
-python scripts/build_database_from_cellxgene.py --limit 50
+python scripts/data_collection/build_database_from_cellxgene.py --limit 50
 
 # Third run (larger limit): Update 10 existing, insert 15 new papers
-python scripts/build_database_from_cellxgene.py --limit 100
+python scripts/data_collection/build_database_from_cellxgene.py --limit 100
 ```
 
 ## Error Handling
@@ -326,7 +326,7 @@ With **10 req/s** rate limit (with API key):
 
 Run schema migration first:
 ```bash
-python scripts/migrate_schema_for_cellxgene.py
+python scripts/database/migrate_schema_for_cellxgene.py
 ```
 
 ### "Configuration file not found"
@@ -413,7 +413,7 @@ After running the database builder:
 
 1. **Generate LLM Descriptions**
    ```bash
-   python scripts/generate_llm_descriptions.py
+   python scripts/llm_processing/generate_llm_descriptions.py
    ```
    - Uses Claude Haiku for cost efficiency
    - Generates concise paper descriptions
@@ -421,7 +421,7 @@ After running the database builder:
 
 2. **Extract Algorithm Information**
    ```bash
-   python scripts/extract_algorithms_from_papers.py
+   python scripts/llm_processing/extract_algorithms_from_papers.py
    ```
    - Extracts algorithm names, parameters, and context
    - Uses PMC full text when available
@@ -440,18 +440,21 @@ After running the database builder:
 ```
 llm-paper-analyze/
 ├── scripts/
-│   ├── migrate_schema_for_cellxgene.py     # Schema migration
-│   ├── build_database_from_cellxgene.py    # Main builder
-│   ├── generate_llm_descriptions.py        # LLM descriptions (TODO)
-│   ├── extract_algorithms_from_papers.py   # Algorithm extraction (TODO)
-│   └── CELLXGENE_PIPELINE_README.md        # This file
+│   ├── database/
+│   │   └── migrate_schema_for_cellxgene.py     # Schema migration
+│   ├── data_collection/
+│   │   └── build_database_from_cellxgene.py    # Main builder
+│   ├── llm_processing/
+│   │   ├── generate_llm_descriptions.py        # LLM descriptions (TODO)
+│   │   └── extract_algorithms_from_papers.py   # Algorithm extraction (TODO)
+│   └── CELLXGENE_PIPELINE_README.md            # This file
 ├── config/
-│   └── pipeline_config.yaml                # Configuration
+│   └── pipeline_config.yaml                    # Configuration
 ├── data/papers/metadata/
-│   └── papers.db                           # SQLite database
+│   └── papers.db                               # SQLite database
 ├── logs/
-│   └── build_database.log                  # Log file
-└── cellxgene_full_metadata.csv             # CELLxGENE metadata
+│   └── build_database.log                     # Log file
+└── cellxgene_full_metadata.csv                 # CELLxGENE metadata
 ```
 
 ## Citation

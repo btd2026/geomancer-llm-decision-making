@@ -1,0 +1,1410 @@
+{
+  "hgftnuic": {
+    "label_key": "development_stage",
+    "categories": [
+      "19-week-old stage"
+    ],
+    "num_categories": 1,
+    "dataset_name": "phate_A"
+  },
+  "ijbevki5": {
+    "label_key": "cell_type",
+    "categories": [
+      "mammary gland epithelial cell",
+      "adipocyte",
+      "epithelial cell",
+      "preadipocyte",
+      "monocyte",
+      "macrophage",
+      "mature NK T cell",
+      "endothelial cell",
+      "dendritic cell",
+      "pericyte",
+      "smooth muscle cell",
+      "endothelial cell of lymphatic vessel",
+      "T cell",
+      "mesothelial cell",
+      "B cell",
+      "mast cell",
+      "neutrophil"
+    ],
+    "num_categories": 17,
+    "dataset_name": "phate_A"
+  },
+  "gfju3gzg": {
+    "label_key": "development_stage",
+    "categories": [
+      "19-week-old stage"
+    ],
+    "num_categories": 1,
+    "dataset_name": "phate_Core_GBmap_c888b684"
+  },
+  "hrttneik": {
+    "label_key": "development_stage",
+    "categories": [
+      "19-week-old stage"
+    ],
+    "num_categories": 1,
+    "dataset_name": "phate_COVID-19_Immune_Altas"
+  },
+  "ir0ts55q": {
+    "label_key": "development_stage",
+    "categories": [
+      "19-week-old stage"
+    ],
+    "num_categories": 1,
+    "dataset_name": "phate_landmarks_All_-_A_single-cell_transcriptomic_atlas_character_48b37086"
+  },
+  "lg2wvwg2": {
+    "label_key": "development_stage",
+    "categories": [
+      "19-week-old stage"
+    ],
+    "num_categories": 1,
+    "dataset_name": "phate_landmarks_All_cells_and_nuclei_093d3bfe"
+  },
+  "taimjr7a": {
+    "label_key": "development_stage",
+    "categories": [
+      "19-week-old stage"
+    ],
+    "num_categories": 1,
+    "dataset_name": "phate_landmarks_All_-_A_single-cell_transcriptomic_atlas_character_f16a8f4d"
+  },
+  "jc2q303c": {
+    "label_key": "development_stage",
+    "categories": [
+      "19-week-old stage"
+    ],
+    "num_categories": 1,
+    "dataset_name": "phate_Frozen_samples"
+  },
+  "kcmfvuch": {
+    "label_key": "development_stage",
+    "categories": [
+      "19-week-old stage"
+    ],
+    "num_categories": 1,
+    "dataset_name": "phate_HBCA_-_epithelial_975e13b6"
+  },
+  "bgtyjq5k": {
+    "label_key": "development_stage",
+    "categories": [
+      "19-week-old stage"
+    ],
+    "num_categories": 1,
+    "dataset_name": "phate_HBCA_-_stroma_be35c935"
+  },
+  "qdtx3lj7": {
+    "label_key": "development_stage",
+    "categories": [
+      "19-week-old stage"
+    ],
+    "num_categories": 1,
+    "dataset_name": "phate_landmarks_All_donors_all_cell_states"
+  },
+  "f7hgyqld": {
+    "label_key": "cell_type",
+    "categories": [
+      "mammary gland epithelial cell",
+      "adipocyte",
+      "epithelial cell",
+      "preadipocyte",
+      "monocyte",
+      "macrophage",
+      "mature NK T cell",
+      "endothelial cell",
+      "dendritic cell",
+      "pericyte",
+      "smooth muscle cell",
+      "endothelial cell of lymphatic vessel",
+      "T cell",
+      "mesothelial cell",
+      "B cell",
+      "mast cell",
+      "neutrophil"
+    ],
+    "num_categories": 17,
+    "dataset_name": "phate_landmarks_An_integrated_transcriptomic_and_epigenomic_atlas_35081d47"
+  },
+  "mtnt339e": {
+    "label_key": "cell_type",
+    "categories": [
+      "mammary gland epithelial cell",
+      "adipocyte",
+      "epithelial cell",
+      "preadipocyte",
+      "monocyte",
+      "macrophage",
+      "mature NK T cell",
+      "endothelial cell",
+      "dendritic cell",
+      "pericyte",
+      "smooth muscle cell",
+      "endothelial cell of lymphatic vessel",
+      "T cell",
+      "mesothelial cell",
+      "B cell",
+      "mast cell",
+      "neutrophil"
+    ],
+    "num_categories": 17,
+    "dataset_name": "phate_landmarks_A_Single-Cell_Atlas_of_Mouse_White_Adipose_Tissue_a2da8d7b"
+  },
+  "869pjesh": {
+    "label_key": "cell_type",
+    "categories": [
+      "mammary gland epithelial cell",
+      "adipocyte",
+      "epithelial cell",
+      "preadipocyte",
+      "monocyte",
+      "macrophage",
+      "mature NK T cell",
+      "endothelial cell",
+      "dendritic cell",
+      "pericyte",
+      "smooth muscle cell",
+      "endothelial cell of lymphatic vessel",
+      "T cell",
+      "mesothelial cell",
+      "B cell",
+      "mast cell",
+      "neutrophil"
+    ],
+    "num_categories": 17,
+    "dataset_name": "phate_HypoMap"
+  },
+  "xkcq8a4h": {
+    "label_key": "development_stage",
+    "categories": [
+      "19-week-old stage"
+    ],
+    "num_categories": 1,
+    "dataset_name": "phate_HypoMap"
+  },
+  "o9ae7egr": {
+    "label_key": "cell_type",
+    "categories": [
+      "mammary gland epithelial cell",
+      "adipocyte",
+      "epithelial cell",
+      "preadipocyte",
+      "monocyte",
+      "macrophage",
+      "mature NK T cell",
+      "endothelial cell",
+      "dendritic cell",
+      "pericyte",
+      "smooth muscle cell",
+      "endothelial cell of lymphatic vessel",
+      "T cell",
+      "mesothelial cell",
+      "B cell",
+      "mast cell",
+      "neutrophil"
+    ],
+    "num_categories": 17,
+    "dataset_name": "phate_HypoMap"
+  },
+  "rsw4eu0y": {
+    "label_key": "cell_type",
+    "categories": [
+      "mammary gland epithelial cell",
+      "adipocyte",
+      "epithelial cell",
+      "preadipocyte",
+      "monocyte",
+      "macrophage",
+      "mature NK T cell",
+      "endothelial cell",
+      "dendritic cell",
+      "pericyte",
+      "smooth muscle cell",
+      "endothelial cell of lymphatic vessel",
+      "T cell",
+      "mesothelial cell",
+      "B cell",
+      "mast cell",
+      "neutrophil"
+    ],
+    "num_categories": 17,
+    "dataset_name": "phate_HypoMap"
+  },
+  "hqy756cn": {
+    "label_key": "development_stage",
+    "categories": [
+      "19-week-old stage"
+    ],
+    "num_categories": 1,
+    "dataset_name": "phate_landmarks_All_major_cell_types_in_adult_human_retina_0129dbd9"
+  },
+  "mkfdt77n": {
+    "label_key": "development_stage",
+    "categories": [
+      "19-week-old stage"
+    ],
+    "num_categories": 1,
+    "dataset_name": "phate_landmarks_All-snRNA-Spatial_multi-omic_map_of_human_myocardi_1c739a3e"
+  },
+  "r47q4e3i": {
+    "label_key": "cell_type",
+    "categories": [
+      "mammary gland epithelial cell",
+      "adipocyte",
+      "epithelial cell",
+      "preadipocyte",
+      "monocyte",
+      "macrophage",
+      "mature NK T cell",
+      "endothelial cell",
+      "dendritic cell",
+      "pericyte",
+      "smooth muscle cell",
+      "endothelial cell of lymphatic vessel",
+      "T cell",
+      "mesothelial cell",
+      "B cell",
+      "mast cell",
+      "neutrophil"
+    ],
+    "num_categories": 17,
+    "dataset_name": "phate_landmarks_An_integrated_transcriptomic_and_epigenomic_atlas_35081d47"
+  },
+  "i1iei9es": {
+    "label_key": "development_stage",
+    "categories": [
+      "19-week-old stage"
+    ],
+    "num_categories": 1,
+    "dataset_name": "phate_landmarks_Airway_edc8d3fe"
+  },
+  "xiv80wh9": {
+    "label_key": "development_stage",
+    "categories": [
+      "19-week-old stage"
+    ],
+    "num_categories": 1,
+    "dataset_name": "phate_landmarks_All_-_A_single-cell_transcriptomic_atlas_character_f16a8f4d"
+  },
+  "58mm5d56": {
+    "label_key": "development_stage",
+    "categories": [
+      "19-week-old stage"
+    ],
+    "num_categories": 1,
+    "dataset_name": "phate_landmarks_All_Cells_-_snRNA-seq_ac0c6561"
+  },
+  "pvf8bj8q": {
+    "label_key": "development_stage",
+    "categories": [
+      "19-week-old stage"
+    ],
+    "num_categories": 1,
+    "dataset_name": "phate_landmarks_All_Cells_-_snRNA-seq_ac0c6561"
+  },
+  "z43cmneb": {
+    "label_key": "cell_type",
+    "categories": [
+      "mammary gland epithelial cell",
+      "adipocyte",
+      "epithelial cell",
+      "preadipocyte",
+      "monocyte",
+      "macrophage",
+      "mature NK T cell",
+      "endothelial cell",
+      "dendritic cell",
+      "pericyte",
+      "smooth muscle cell",
+      "endothelial cell of lymphatic vessel",
+      "T cell",
+      "mesothelial cell",
+      "B cell",
+      "mast cell",
+      "neutrophil"
+    ],
+    "num_categories": 17,
+    "dataset_name": "phate_HypoMap"
+  },
+  "9848nu07": {
+    "label_key": "cell_type",
+    "categories": [
+      "mammary gland epithelial cell",
+      "adipocyte",
+      "epithelial cell",
+      "preadipocyte",
+      "monocyte",
+      "macrophage",
+      "mature NK T cell",
+      "endothelial cell",
+      "dendritic cell",
+      "pericyte",
+      "smooth muscle cell",
+      "endothelial cell of lymphatic vessel",
+      "T cell",
+      "mesothelial cell",
+      "B cell",
+      "mast cell",
+      "neutrophil"
+    ],
+    "num_categories": 17,
+    "dataset_name": "phate_HypoMap"
+  },
+  "mjuiw4es": {
+    "label_key": "cell_type",
+    "categories": [
+      "mammary gland epithelial cell",
+      "adipocyte",
+      "epithelial cell",
+      "preadipocyte",
+      "monocyte",
+      "macrophage",
+      "mature NK T cell",
+      "endothelial cell",
+      "dendritic cell",
+      "pericyte",
+      "smooth muscle cell",
+      "endothelial cell of lymphatic vessel",
+      "T cell",
+      "mesothelial cell",
+      "B cell",
+      "mast cell",
+      "neutrophil"
+    ],
+    "num_categories": 17,
+    "dataset_name": "phate_HypoMap"
+  },
+  "oxcxtsyc": {
+    "label_key": "cell_type",
+    "categories": [
+      "mammary gland epithelial cell",
+      "adipocyte",
+      "epithelial cell",
+      "preadipocyte",
+      "monocyte",
+      "macrophage",
+      "mature NK T cell",
+      "endothelial cell",
+      "dendritic cell",
+      "pericyte",
+      "smooth muscle cell",
+      "endothelial cell of lymphatic vessel",
+      "T cell",
+      "mesothelial cell",
+      "B cell",
+      "mast cell",
+      "neutrophil"
+    ],
+    "num_categories": 17,
+    "dataset_name": "phate_HypoMap"
+  },
+  "37fx6f9o": {
+    "label_key": "cell_type",
+    "categories": [
+      "mammary gland epithelial cell",
+      "adipocyte",
+      "epithelial cell",
+      "preadipocyte",
+      "monocyte",
+      "macrophage",
+      "mature NK T cell",
+      "endothelial cell",
+      "dendritic cell",
+      "pericyte",
+      "smooth muscle cell",
+      "endothelial cell of lymphatic vessel",
+      "T cell",
+      "mesothelial cell",
+      "B cell",
+      "mast cell",
+      "neutrophil"
+    ],
+    "num_categories": 17,
+    "dataset_name": "phate_HypoMap"
+  },
+  "25137olm": {
+    "label_key": "development_stage",
+    "categories": [
+      "19-week-old stage"
+    ],
+    "num_categories": 1,
+    "dataset_name": "phate_HypoMap"
+  },
+  "bj4xdfdk": {
+    "label_key": "cell_type",
+    "categories": [
+      "mammary gland epithelial cell",
+      "adipocyte",
+      "epithelial cell",
+      "preadipocyte",
+      "monocyte",
+      "macrophage",
+      "mature NK T cell",
+      "endothelial cell",
+      "dendritic cell",
+      "pericyte",
+      "smooth muscle cell",
+      "endothelial cell of lymphatic vessel",
+      "T cell",
+      "mesothelial cell",
+      "B cell",
+      "mast cell",
+      "neutrophil"
+    ],
+    "num_categories": 17,
+    "dataset_name": "phate_HypoMap"
+  },
+  "hbwe2f2o": {
+    "label_key": "cell_type",
+    "categories": [
+      "mammary gland epithelial cell",
+      "adipocyte",
+      "epithelial cell",
+      "preadipocyte",
+      "monocyte",
+      "macrophage",
+      "mature NK T cell",
+      "endothelial cell",
+      "dendritic cell",
+      "pericyte",
+      "smooth muscle cell",
+      "endothelial cell of lymphatic vessel",
+      "T cell",
+      "mesothelial cell",
+      "B cell",
+      "mast cell",
+      "neutrophil"
+    ],
+    "num_categories": 17,
+    "dataset_name": "phate_HypoMap"
+  },
+  "5rwt7sjh": {
+    "label_key": "cell_type",
+    "categories": [
+      "mammary gland epithelial cell",
+      "adipocyte",
+      "epithelial cell",
+      "preadipocyte",
+      "monocyte",
+      "macrophage",
+      "mature NK T cell",
+      "endothelial cell",
+      "dendritic cell",
+      "pericyte",
+      "smooth muscle cell",
+      "endothelial cell of lymphatic vessel",
+      "T cell",
+      "mesothelial cell",
+      "B cell",
+      "mast cell",
+      "neutrophil"
+    ],
+    "num_categories": 17,
+    "dataset_name": "phate_HypoMap"
+  },
+  "nl9cm8x5": {
+    "label_key": "development_stage",
+    "categories": [
+      "19-week-old stage"
+    ],
+    "num_categories": 1,
+    "dataset_name": "phate_landmarks_Blood_d86edd6a"
+  },
+  "xd6zv24b": {
+    "label_key": "development_stage",
+    "categories": [
+      "19-week-old stage"
+    ],
+    "num_categories": 1,
+    "dataset_name": "phate_landmarks_Dissection"
+  },
+  "mhp4gypd": {
+    "label_key": "development_stage",
+    "categories": [
+      "19-week-old stage"
+    ],
+    "num_categories": 1,
+    "dataset_name": "phate_landmarks_Figure_1_-_A_cell_atlas_of_human_thymic_developmen_cda2c8cd"
+  },
+  "z9eiaxwp": {
+    "label_key": "development_stage",
+    "categories": [
+      "19-week-old stage"
+    ],
+    "num_categories": 1,
+    "dataset_name": "phate_landmarks_Blood_d86edd6a"
+  },
+  "flhsj4vc": {
+    "label_key": "development_stage",
+    "categories": [
+      "19-week-old stage"
+    ],
+    "num_categories": 1,
+    "dataset_name": "phate_landmarks_Carebank_8f4f8502"
+  },
+  "qrcpusdw": {
+    "label_key": "development_stage",
+    "categories": [
+      "19-week-old stage"
+    ],
+    "num_categories": 1,
+    "dataset_name": "phate_landmarks_ClassNeuroblast_e59a4394"
+  },
+  "aupu8aow": {
+    "label_key": "cell_type",
+    "categories": [
+      "mammary gland epithelial cell",
+      "adipocyte",
+      "epithelial cell",
+      "preadipocyte",
+      "monocyte",
+      "macrophage",
+      "mature NK T cell",
+      "endothelial cell",
+      "dendritic cell",
+      "pericyte",
+      "smooth muscle cell",
+      "endothelial cell of lymphatic vessel",
+      "T cell",
+      "mesothelial cell",
+      "B cell",
+      "mast cell",
+      "neutrophil"
+    ],
+    "num_categories": 17,
+    "dataset_name": "phate_HypoMap"
+  },
+  "me8m4h4v": {
+    "label_key": "development_stage",
+    "categories": [
+      "19-week-old stage"
+    ],
+    "num_categories": 1,
+    "dataset_name": "phate_landmarks_Figure_1_-_A_cell_atlas_of_human_thymic_developmen_cda2c8cd"
+  },
+  "dph06vzz": {
+    "label_key": "development_stage",
+    "categories": [
+      "19-week-old stage"
+    ],
+    "num_categories": 1,
+    "dataset_name": "phate_landmarks_HBCA_-_epithelial_975e13b6"
+  },
+  "xfezagt9": {
+    "label_key": "development_stage",
+    "categories": [
+      "19-week-old stage"
+    ],
+    "num_categories": 1,
+    "dataset_name": "phate_landmarks_HBCA_-_epithelial_975e13b6"
+  },
+  "todc2h7z": {
+    "label_key": "development_stage",
+    "categories": [
+      "19-week-old stage"
+    ],
+    "num_categories": 1,
+    "dataset_name": "phate_landmarks_Human_Female_18e2a8c5"
+  },
+  "pga3n3z2": {
+    "label_key": "development_stage",
+    "categories": [
+      "19-week-old stage"
+    ],
+    "num_categories": 1,
+    "dataset_name": "phate_landmarks_Human_Somatic_Cell_Lineage_4fb330ab"
+  },
+  "j1lg8xf7": {
+    "label_key": "development_stage",
+    "categories": [
+      "19-week-old stage"
+    ],
+    "num_categories": 1,
+    "dataset_name": "phate_Intestine_cbec7853"
+  },
+  "bpssey6l": {
+    "label_key": "development_stage",
+    "categories": [
+      "19-week-old stage"
+    ],
+    "num_categories": 1,
+    "dataset_name": "phate_Intestine_cbec7853"
+  },
+  "bi73yxy7": {
+    "label_key": "development_stage",
+    "categories": [
+      "19-week-old stage"
+    ],
+    "num_categories": 1,
+    "dataset_name": "phate_Kidney_f95d8919"
+  },
+  "ftk74qpr": {
+    "label_key": "development_stage",
+    "categories": [
+      "19-week-old stage"
+    ],
+    "num_categories": 1,
+    "dataset_name": "phate_Kidney_f95d8919"
+  },
+  "5eyadhoz": {
+    "label_key": "development_stage",
+    "categories": [
+      "19-week-old stage"
+    ],
+    "num_categories": 1,
+    "dataset_name": "phate_L2_3_IT_-_DLPFC"
+  },
+  "j6ku6sak": {
+    "label_key": "development_stage",
+    "categories": [
+      "19-week-old stage"
+    ],
+    "num_categories": 1,
+    "dataset_name": "phate_L2_3_IT_-_MTG"
+  },
+  "lyeani14": {
+    "label_key": "development_stage",
+    "categories": [
+      "19-week-old stage"
+    ],
+    "num_categories": 1,
+    "dataset_name": "phate_Liver_1d89d081"
+  },
+  "fd2ytt7c": {
+    "label_key": "development_stage",
+    "categories": [
+      "19-week-old stage"
+    ],
+    "num_categories": 1,
+    "dataset_name": "phate_Liver_1d89d081"
+  },
+  "u7ozb5v7": {
+    "label_key": "cell_type",
+    "categories": [
+      "mammary gland epithelial cell",
+      "adipocyte",
+      "epithelial cell",
+      "preadipocyte",
+      "monocyte",
+      "macrophage",
+      "mature NK T cell",
+      "endothelial cell",
+      "dendritic cell",
+      "pericyte",
+      "smooth muscle cell",
+      "endothelial cell of lymphatic vessel",
+      "T cell",
+      "mesothelial cell",
+      "B cell",
+      "mast cell",
+      "neutrophil"
+    ],
+    "num_categories": 17,
+    "dataset_name": "phate_Mouse_pancreatic_islet_scRNA-seq_atlas_across_sexe_49e4ffcc"
+  },
+  "vijgg85a": {
+    "label_key": "cell_type",
+    "categories": [
+      "mammary gland epithelial cell",
+      "adipocyte",
+      "epithelial cell",
+      "preadipocyte",
+      "monocyte",
+      "macrophage",
+      "mature NK T cell",
+      "endothelial cell",
+      "dendritic cell",
+      "pericyte",
+      "smooth muscle cell",
+      "endothelial cell of lymphatic vessel",
+      "T cell",
+      "mesothelial cell",
+      "B cell",
+      "mast cell",
+      "neutrophil"
+    ],
+    "num_categories": 17,
+    "dataset_name": "phate_Mouse_pancreatic_islet_scRNA-seq_atlas_across_sexe_49e4ffcc"
+  },
+  "szcxjjka": {
+    "label_key": "cell_type",
+    "categories": [
+      "mammary gland epithelial cell",
+      "adipocyte",
+      "epithelial cell",
+      "preadipocyte",
+      "monocyte",
+      "macrophage",
+      "mature NK T cell",
+      "endothelial cell",
+      "dendritic cell",
+      "pericyte",
+      "smooth muscle cell",
+      "endothelial cell of lymphatic vessel",
+      "T cell",
+      "mesothelial cell",
+      "B cell",
+      "mast cell",
+      "neutrophil"
+    ],
+    "num_categories": 17,
+    "dataset_name": "phate_Mouse_pancreatic_islet_scRNA-seq_atlas_across_sexe_49e4ffcc"
+  },
+  "vm8hpkcn": {
+    "label_key": "cell_type",
+    "categories": [
+      "mammary gland epithelial cell",
+      "adipocyte",
+      "epithelial cell",
+      "preadipocyte",
+      "monocyte",
+      "macrophage",
+      "mature NK T cell",
+      "endothelial cell",
+      "dendritic cell",
+      "pericyte",
+      "smooth muscle cell",
+      "endothelial cell of lymphatic vessel",
+      "T cell",
+      "mesothelial cell",
+      "B cell",
+      "mast cell",
+      "neutrophil"
+    ],
+    "num_categories": 17,
+    "dataset_name": "phate_Mouse_pancreatic_islet_scRNA-seq_atlas_across_sexe_49e4ffcc"
+  },
+  "jgpg2gq1": {
+    "label_key": "cell_type",
+    "categories": [
+      "mammary gland epithelial cell",
+      "adipocyte",
+      "epithelial cell",
+      "preadipocyte",
+      "monocyte",
+      "macrophage",
+      "mature NK T cell",
+      "endothelial cell",
+      "dendritic cell",
+      "pericyte",
+      "smooth muscle cell",
+      "endothelial cell of lymphatic vessel",
+      "T cell",
+      "mesothelial cell",
+      "B cell",
+      "mast cell",
+      "neutrophil"
+    ],
+    "num_categories": 17,
+    "dataset_name": "phate_Oral_and_Craniofacial_Atlas_cb252df6"
+  },
+  "7patvxfh": {
+    "label_key": "cell_type",
+    "categories": [
+      "mammary gland epithelial cell",
+      "adipocyte",
+      "epithelial cell",
+      "preadipocyte",
+      "monocyte",
+      "macrophage",
+      "mature NK T cell",
+      "endothelial cell",
+      "dendritic cell",
+      "pericyte",
+      "smooth muscle cell",
+      "endothelial cell of lymphatic vessel",
+      "T cell",
+      "mesothelial cell",
+      "B cell",
+      "mast cell",
+      "neutrophil"
+    ],
+    "num_categories": 17,
+    "dataset_name": "phate_Oral_and_Craniofacial_Atlas_cb252df6"
+  },
+  "vxhdb8rt": {
+    "label_key": "development_stage",
+    "categories": [
+      "19-week-old stage"
+    ],
+    "num_categories": 1,
+    "dataset_name": "phate_Oral_and_Craniofacial_Atlas_cb252df6"
+  },
+  "2bojbcl0": {
+    "label_key": "development_stage",
+    "categories": [
+      "19-week-old stage"
+    ],
+    "num_categories": 1,
+    "dataset_name": "phate_Oral_and_Craniofacial_Atlas_cb252df6"
+  },
+  "0pei06l2": {
+    "label_key": "cell_type",
+    "categories": [
+      "mammary gland epithelial cell",
+      "adipocyte",
+      "epithelial cell",
+      "preadipocyte",
+      "monocyte",
+      "macrophage",
+      "mature NK T cell",
+      "endothelial cell",
+      "dendritic cell",
+      "pericyte",
+      "smooth muscle cell",
+      "endothelial cell of lymphatic vessel",
+      "T cell",
+      "mesothelial cell",
+      "B cell",
+      "mast cell",
+      "neutrophil"
+    ],
+    "num_categories": 17,
+    "dataset_name": "phate_Oral_and_Craniofacial_Atlas_cb252df6"
+  },
+  "c2fli5ei": {
+    "label_key": "cell_type",
+    "categories": [
+      "mammary gland epithelial cell",
+      "adipocyte",
+      "epithelial cell",
+      "preadipocyte",
+      "monocyte",
+      "macrophage",
+      "mature NK T cell",
+      "endothelial cell",
+      "dendritic cell",
+      "pericyte",
+      "smooth muscle cell",
+      "endothelial cell of lymphatic vessel",
+      "T cell",
+      "mesothelial cell",
+      "B cell",
+      "mast cell",
+      "neutrophil"
+    ],
+    "num_categories": 17,
+    "dataset_name": "phate_plaque_atlas_72955cdb"
+  },
+  "nmnskze6": {
+    "label_key": "development_stage",
+    "categories": [
+      "19-week-old stage"
+    ],
+    "num_categories": 1,
+    "dataset_name": "phate_Oral_and_Craniofacial_Atlas_cb252df6"
+  },
+  "34eq5lwv": {
+    "label_key": "cell_type",
+    "categories": [
+      "mammary gland epithelial cell",
+      "adipocyte",
+      "epithelial cell",
+      "preadipocyte",
+      "monocyte",
+      "macrophage",
+      "mature NK T cell",
+      "endothelial cell",
+      "dendritic cell",
+      "pericyte",
+      "smooth muscle cell",
+      "endothelial cell of lymphatic vessel",
+      "T cell",
+      "mesothelial cell",
+      "B cell",
+      "mast cell",
+      "neutrophil"
+    ],
+    "num_categories": 17,
+    "dataset_name": "phate_plaque_atlas_72955cdb"
+  },
+  "ojnpngy6": {
+    "label_key": "cell_type",
+    "categories": [
+      "mammary gland epithelial cell",
+      "adipocyte",
+      "epithelial cell",
+      "preadipocyte",
+      "monocyte",
+      "macrophage",
+      "mature NK T cell",
+      "endothelial cell",
+      "dendritic cell",
+      "pericyte",
+      "smooth muscle cell",
+      "endothelial cell of lymphatic vessel",
+      "T cell",
+      "mesothelial cell",
+      "B cell",
+      "mast cell",
+      "neutrophil"
+    ],
+    "num_categories": 17,
+    "dataset_name": "phate_plaque_atlas_72955cdb"
+  },
+  "3cnze52z": {
+    "label_key": "cell_type",
+    "categories": [
+      "mammary gland epithelial cell",
+      "adipocyte",
+      "epithelial cell",
+      "preadipocyte",
+      "monocyte",
+      "macrophage",
+      "mature NK T cell",
+      "endothelial cell",
+      "dendritic cell",
+      "pericyte",
+      "smooth muscle cell",
+      "endothelial cell of lymphatic vessel",
+      "T cell",
+      "mesothelial cell",
+      "B cell",
+      "mast cell",
+      "neutrophil"
+    ],
+    "num_categories": 17,
+    "dataset_name": "phate_plaque_atlas_72955cdb"
+  },
+  "9iddngju": {
+    "label_key": "development_stage",
+    "categories": [
+      "19-week-old stage"
+    ],
+    "num_categories": 1,
+    "dataset_name": "phate_plaque_atlas_72955cdb"
+  },
+  "y9n3gzwr": {
+    "label_key": "cell_type",
+    "categories": [
+      "mammary gland epithelial cell",
+      "adipocyte",
+      "epithelial cell",
+      "preadipocyte",
+      "monocyte",
+      "macrophage",
+      "mature NK T cell",
+      "endothelial cell",
+      "dendritic cell",
+      "pericyte",
+      "smooth muscle cell",
+      "endothelial cell of lymphatic vessel",
+      "T cell",
+      "mesothelial cell",
+      "B cell",
+      "mast cell",
+      "neutrophil"
+    ],
+    "num_categories": 17,
+    "dataset_name": "phate_plaque_atlas_72955cdb"
+  },
+  "zy06go0t": {
+    "label_key": "cell_type",
+    "categories": [
+      "mammary gland epithelial cell",
+      "adipocyte",
+      "epithelial cell",
+      "preadipocyte",
+      "monocyte",
+      "macrophage",
+      "mature NK T cell",
+      "endothelial cell",
+      "dendritic cell",
+      "pericyte",
+      "smooth muscle cell",
+      "endothelial cell of lymphatic vessel",
+      "T cell",
+      "mesothelial cell",
+      "B cell",
+      "mast cell",
+      "neutrophil"
+    ],
+    "num_categories": 17,
+    "dataset_name": "phate_plaque_atlas_72955cdb"
+  },
+  "p10hw1mc": {
+    "label_key": "development_stage",
+    "categories": [
+      "19-week-old stage"
+    ],
+    "num_categories": 1,
+    "dataset_name": "phate_plaque_atlas_72955cdb"
+  },
+  "87p77tev": {
+    "label_key": "development_stage",
+    "categories": [
+      "19-week-old stage"
+    ],
+    "num_categories": 1,
+    "dataset_name": "phate_scRNA-seq_of_human_retina_-_all_cells_be41a86a"
+  },
+  "ubva857f": {
+    "label_key": "development_stage",
+    "categories": [
+      "19-week-old stage"
+    ],
+    "num_categories": 1,
+    "dataset_name": "phate_scRNA-seq_of_human_retina_-_all_cells_be41a86a"
+  },
+  "z6sy487k": {
+    "label_key": "development_stage",
+    "categories": [
+      "19-week-old stage"
+    ],
+    "num_categories": 1,
+    "dataset_name": "phate_Single-cell_RNA-seq_of_the_Adult_Human_Kidney"
+  },
+  "khsvs957": {
+    "label_key": "development_stage",
+    "categories": [
+      "19-week-old stage"
+    ],
+    "num_categories": 1,
+    "dataset_name": "phate_Skeletal_muscle_15d374d6"
+  },
+  "hkz3znma": {
+    "label_key": "cell_type",
+    "categories": [
+      "mammary gland epithelial cell",
+      "adipocyte",
+      "epithelial cell",
+      "preadipocyte",
+      "monocyte",
+      "macrophage",
+      "mature NK T cell",
+      "endothelial cell",
+      "dendritic cell",
+      "pericyte",
+      "smooth muscle cell",
+      "endothelial cell of lymphatic vessel",
+      "T cell",
+      "mesothelial cell",
+      "B cell",
+      "mast cell",
+      "neutrophil"
+    ],
+    "num_categories": 17,
+    "dataset_name": "phate_Skeletal_muscle_15d374d6"
+  },
+  "7r39zw2v": {
+    "label_key": "development_stage",
+    "categories": [
+      "19-week-old stage"
+    ],
+    "num_categories": 1,
+    "dataset_name": "phate_Skeletal_muscle_15d374d6"
+  },
+  "xc3ikrwv": {
+    "label_key": "cell_type",
+    "categories": [
+      "mammary gland epithelial cell",
+      "adipocyte",
+      "epithelial cell",
+      "preadipocyte",
+      "monocyte",
+      "macrophage",
+      "mature NK T cell",
+      "endothelial cell",
+      "dendritic cell",
+      "pericyte",
+      "smooth muscle cell",
+      "endothelial cell of lymphatic vessel",
+      "T cell",
+      "mesothelial cell",
+      "B cell",
+      "mast cell",
+      "neutrophil"
+    ],
+    "num_categories": 17,
+    "dataset_name": "phate_Spleen_72f4798d"
+  },
+  "4i64jo1b": {
+    "label_key": "cell_type",
+    "categories": [
+      "mammary gland epithelial cell",
+      "adipocyte",
+      "epithelial cell",
+      "preadipocyte",
+      "monocyte",
+      "macrophage",
+      "mature NK T cell",
+      "endothelial cell",
+      "dendritic cell",
+      "pericyte",
+      "smooth muscle cell",
+      "endothelial cell of lymphatic vessel",
+      "T cell",
+      "mesothelial cell",
+      "B cell",
+      "mast cell",
+      "neutrophil"
+    ],
+    "num_categories": 17,
+    "dataset_name": "phate_thymus_scRNA-seq_atlas_29244e1d"
+  },
+  "sw5833c9": {
+    "label_key": "cell_type",
+    "categories": [
+      "mammary gland epithelial cell",
+      "adipocyte",
+      "epithelial cell",
+      "preadipocyte",
+      "monocyte",
+      "macrophage",
+      "mature NK T cell",
+      "endothelial cell",
+      "dendritic cell",
+      "pericyte",
+      "smooth muscle cell",
+      "endothelial cell of lymphatic vessel",
+      "T cell",
+      "mesothelial cell",
+      "B cell",
+      "mast cell",
+      "neutrophil"
+    ],
+    "num_categories": 17,
+    "dataset_name": "phate_UMAP_of_Cancer_Data_integration_7bb64315"
+  },
+  "whbf35o3": {
+    "label_key": "development_stage",
+    "categories": [
+      "19-week-old stage"
+    ],
+    "num_categories": 1,
+    "dataset_name": "phate_UMAP_of_Cancer_Data_integration_7bb64315"
+  },
+  "26vrwhd6": {
+    "label_key": "development_stage",
+    "categories": [
+      "19-week-old stage"
+    ],
+    "num_categories": 1,
+    "dataset_name": "phate_Combined_single_cell_and_single_nuclei_RNA-Seq_dat_d567b692"
+  },
+  "h8lst1lj": {
+    "label_key": "cell_type",
+    "categories": [
+      "mammary gland epithelial cell",
+      "adipocyte",
+      "epithelial cell",
+      "preadipocyte",
+      "monocyte",
+      "macrophage",
+      "mature NK T cell",
+      "endothelial cell",
+      "dendritic cell",
+      "pericyte",
+      "smooth muscle cell",
+      "endothelial cell of lymphatic vessel",
+      "T cell",
+      "mesothelial cell",
+      "B cell",
+      "mast cell",
+      "neutrophil"
+    ],
+    "num_categories": 17,
+    "dataset_name": "phate_Combined_single_cell_and_single_nuclei_RNA-Seq_dat_d567b692"
+  },
+  "j40f4k3j": {
+    "label_key": "development_stage",
+    "categories": [
+      "19-week-old stage"
+    ],
+    "num_categories": 1,
+    "dataset_name": "phate_Combined_single_cell_and_single_nuclei_RNA-Seq_dat_d567b692"
+  },
+  "k7y91hzc": {
+    "label_key": "development_stage",
+    "categories": [
+      "19-week-old stage"
+    ],
+    "num_categories": 1,
+    "dataset_name": "phate_HBCA_-_stroma_be35c935"
+  },
+  "xk2v6e6h": {
+    "label_key": "development_stage",
+    "categories": [
+      "19-week-old stage"
+    ],
+    "num_categories": 1,
+    "dataset_name": "phate_Combined_single_cell_and_single_nuclei_RNA-Seq_dat_d567b692"
+  },
+  "umcmz7bb": {
+    "label_key": "development_stage",
+    "categories": [
+      "19-week-old stage"
+    ],
+    "num_categories": 1,
+    "dataset_name": "phate_DCM_ACM_heart_cell_atlas"
+  },
+  "n7ze79w5": {
+    "label_key": "development_stage",
+    "categories": [
+      "19-week-old stage"
+    ],
+    "num_categories": 1,
+    "dataset_name": "phate_landmarks_Core_GBmap_c888b684"
+  },
+  "tm2eg86f": {
+    "label_key": "development_stage",
+    "categories": [
+      "19-week-old stage"
+    ],
+    "num_categories": 1,
+    "dataset_name": "phate_landmarks_Frozen_samples"
+  },
+  "txb1v6gw": {
+    "label_key": "development_stage",
+    "categories": [
+      "19-week-old stage"
+    ],
+    "num_categories": 1,
+    "dataset_name": "phate_landmarks_Core_GBmap_c888b684"
+  },
+  "45gz9ik4": {
+    "label_key": "development_stage",
+    "categories": [
+      "19-week-old stage"
+    ],
+    "num_categories": 1,
+    "dataset_name": "phate_landmarks_Frozen_samples"
+  },
+  "vuq0xg6q": {
+    "label_key": "development_stage",
+    "categories": [
+      "19-week-old stage"
+    ],
+    "num_categories": 1,
+    "dataset_name": "phate_landmarks_Frozen_samples"
+  },
+  "rnivey5v": {
+    "label_key": "development_stage",
+    "categories": [
+      "19-week-old stage"
+    ],
+    "num_categories": 1,
+    "dataset_name": "phate_Combined_single_cell_and_single_nuclei_RNA-Seq_dat_d567b692"
+  },
+  "3haonrc6": {
+    "label_key": "cell_type",
+    "categories": [
+      "mammary gland epithelial cell",
+      "adipocyte",
+      "epithelial cell",
+      "preadipocyte",
+      "monocyte",
+      "macrophage",
+      "mature NK T cell",
+      "endothelial cell",
+      "dendritic cell",
+      "pericyte",
+      "smooth muscle cell",
+      "endothelial cell of lymphatic vessel",
+      "T cell",
+      "mesothelial cell",
+      "B cell",
+      "mast cell",
+      "neutrophil"
+    ],
+    "num_categories": 17,
+    "dataset_name": "phate_ClassNeuroblast_e59a4394"
+  },
+  "2gdnmeuo": {
+    "label_key": "development_stage",
+    "categories": [
+      "19-week-old stage"
+    ],
+    "num_categories": 1,
+    "dataset_name": "phate_landmarks_DCM_ACM_heart_cell_atlas"
+  },
+  "4mtpdaj6": {
+    "label_key": "development_stage",
+    "categories": [
+      "19-week-old stage"
+    ],
+    "num_categories": 1,
+    "dataset_name": "phate_landmarks_DCM_ACM_heart_cell_atlas"
+  },
+  "ksz9qgzo": {
+    "label_key": "development_stage",
+    "categories": [
+      "19-week-old stage"
+    ],
+    "num_categories": 1,
+    "dataset_name": "phate_landmarks_HBCA_-_stroma_be35c935"
+  },
+  "p36jlo05": {
+    "label_key": "development_stage",
+    "categories": [
+      "19-week-old stage"
+    ],
+    "num_categories": 1,
+    "dataset_name": "phate_landmarks_Global_1b9d8702"
+  },
+  "un8vkzwx": {
+    "label_key": "development_stage",
+    "categories": [
+      "19-week-old stage"
+    ],
+    "num_categories": 1,
+    "dataset_name": "phate_landmarks_HBCA_-_stroma_be35c935"
+  },
+  "e1grg8u0": {
+    "label_key": "cell_type",
+    "categories": [
+      "mammary gland epithelial cell",
+      "adipocyte",
+      "epithelial cell",
+      "preadipocyte",
+      "monocyte",
+      "macrophage",
+      "mature NK T cell",
+      "endothelial cell",
+      "dendritic cell",
+      "pericyte",
+      "smooth muscle cell",
+      "endothelial cell of lymphatic vessel",
+      "T cell",
+      "mesothelial cell",
+      "B cell",
+      "mast cell",
+      "neutrophil"
+    ],
+    "num_categories": 17,
+    "dataset_name": "phate_Frozen_samples"
+  },
+  "ledk69m3": {
+    "label_key": "cell_type",
+    "categories": [
+      "mammary gland epithelial cell",
+      "adipocyte",
+      "epithelial cell",
+      "preadipocyte",
+      "monocyte",
+      "macrophage",
+      "mature NK T cell",
+      "endothelial cell",
+      "dendritic cell",
+      "pericyte",
+      "smooth muscle cell",
+      "endothelial cell of lymphatic vessel",
+      "T cell",
+      "mesothelial cell",
+      "B cell",
+      "mast cell",
+      "neutrophil"
+    ],
+    "num_categories": 17,
+    "dataset_name": "phate_Frozen_samples"
+  },
+  "ntz99vas": {
+    "label_key": "development_stage",
+    "categories": [
+      "19-week-old stage"
+    ],
+    "num_categories": 1,
+    "dataset_name": "phate_Frozen_samples"
+  }
+}

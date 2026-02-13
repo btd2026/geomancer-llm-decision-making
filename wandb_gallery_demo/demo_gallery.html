@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>W&B PHATE Demo Gallery</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        .header h1 { margin: 0 0 10px 0; font-size: 28px; }
+        .header p { margin: 0; opacity: 0.9; font-size: 16px; }
+        .demo-notice {
+            background: #fff3cd;
+            color: #856404;
+            padding: 15px;
+            text-align: center;
+            border-bottom: 1px solid #ffeeba;
+        }
+        .demo-notice strong { color: #721c24; }
+        .stats {
+            background: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 1px solid #dee2e6;
+        }
+        .stats span {
+            display: inline-block;
+            margin: 0 20px;
+            padding: 10px 20px;
+            background: #007bff;
+            color: white;
+            border-radius: 25px;
+            font-weight: bold;
+        }
+        .controls {
+            padding: 20px;
+            background: #f8f9fa;
+            border-bottom: 1px solid #dee2e6;
+        }
+        .search-box {
+            width: 100%;
+            max-width: 400px;
+            padding: 12px 20px;
+            border: 2px solid #dee2e6;
+            border-radius: 25px;
+            font-size: 14px;
+            transition: border-color 0.3s;
+        }
+        .search-box:focus {
+            outline: none;
+            border-color: #007bff;
+        }
+        .gallery {
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            border-color: #007bff;
+        }
+        .card img {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(45deg, #f0f0f0 25%, transparent 25%, transparent 75%, #f0f0f0 75%),
+                        linear-gradient(45deg, #f0f0f0 25%, transparent 25%, transparent 75%, #f0f0f0 75%);
+            background-size: 20px 20px;
+            background-position: 0 0, 10px 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-size: 14px;
+            cursor: pointer;
+            transition: opacity 0.3s;
+        }
+        .card img:hover { opacity: 0.9; }
+        .card-body { padding: 20px; }
+        .card-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #2c3e50;
+            margin: 0 0 8px 0;
+            line-height: 1.3;
+        }
+        .card-subtitle {
+            font-size: 14px;
+            color: #6c757d;
+            margin: 0 0 12px 0;
+        }
+        .card-meta {
+            font-size: 12px;
+            color: #868e96;
+            margin-bottom: 8px;
+        }
+        .card-link {
+            display: inline-block;
+            padding: 8px 16px;
+            background: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 20px;
+            font-size: 12px;
+            transition: background 0.3s;
+        }
+        .card-link:hover {
+            background: #0056b3;
+            text-decoration: none;
+            color: white;
+        }
+        .instructions {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 8px;
+        }
+        .instructions h3 { margin-top: 0; }
+        .instructions code {
+            background: #e2e3e5;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🧬 PHATE Visualizations Demo</h1>
+            <p>Test gallery for W&B runs from cesar-valdez-mcgill-university/geomancer-phate-labeled</p>
+        </div>
+
+        <div class="demo-notice">
+            <strong>⚠️ Demo Mode</strong> - This is a test gallery with sample data.
+            Run the full script with W&B authentication to see your actual visualizations.
+        </div>
+
+        <div class="stats">
+            <span>📊 5 Demo Visualizations</span>
+            <span>🔬 5 Datasets</span>
+            <span>🏷️ 2 Label Types</span>
+        </div>
+
+        <div class="controls">
+            <input
+                type="text"
+                id="searchBox"
+                class="search-box"
+                placeholder="🔍 Search by dataset name, label, or run ID..."
+                onkeyup="filterCards()"
+            >
+        </div>
+
+        <div class="instructions">
+            <h3>🚀 Next Steps to Deploy on Replit:</h3>
+            <ol>
+                <li><strong>Login to W&B:</strong> <code>wandb login</code></li>
+                <li><strong>Run the full script:</strong> <code>python create_replit_wandb_gallery.py</code></li>
+                <li><strong>Upload to Replit:</strong> Copy all files to your Replit project</li>
+                <li><strong>Start server:</strong> <code>python -m http.server 8000 --directory wandb_gallery_replit</code></li>
+                <li><strong>View gallery:</strong> Open Replit web preview</li>
+            </ol>
+            <p><strong>📖 For detailed instructions, see:</strong> <code>REPLIT_DEPLOYMENT_GUIDE.md</code></p>
+        </div>
+
+        <div class="gallery" id="gallery">
+            <div class="card" data-name="pbmc_1k" data-label="cell_type" data-id="sample_run_000">
+                <div style="width: 100%; height: 200px; background: linear-gradient(45deg, #f0f0f0 25%, transparent 25%, transparent 75%, #f0f0f0 75%), linear-gradient(45deg, #f0f0f0 25%, transparent 25%, transparent 75%, #f0f0f0 75%); background-size: 20px 20px; background-position: 0 0, 10px 10px; display: flex; align-items: center; justify-content: center; color: #666; font-size: 14px;">
+                    📊 PHATE Visualization<br>
+                    <small>(Demo placeholder)</small>
+                </div>
+                <div class="card-body">
+                    <div class="card-title">pbmc_1k</div>
+                    <div class="card-subtitle">Label: cell_type</div>
+                    <div class="card-meta">
+                        Run ID: sample_run_000...<br>
+                        Demo Created: 2026-02-03T12:43
+                    </div>
+                    <a href="https://wandb.ai/cesar-valdez-mcgill-university/geomancer-phate-labeled/runs/sample_run_000" target="_blank" class="card-link">
+                        View in W&B →
+                    </a>
+                </div>
+            </div>
+            <div class="card" data-name="pbmc_2k" data-label="leiden_clusters" data-id="sample_run_001">
+                <div style="width: 100%; height: 200px; background: linear-gradient(45deg, #f0f0f0 25%, transparent 25%, transparent 75%, #f0f0f0 75%), linear-gradient(45deg, #f0f0f0 25%, transparent 25%, transparent 75%, #f0f0f0 75%); background-size: 20px 20px; background-position: 0 0, 10px 10px; display: flex; align-items: center; justify-content: center; color: #666; font-size: 14px;">
+                    📊 PHATE Visualization<br>
+                    <small>(Demo placeholder)</small>
+                </div>
+                <div class="card-body">
+                    <div class="card-title">pbmc_2k</div>
+                    <div class="card-subtitle">Label: leiden_clusters</div>
+                    <div class="card-meta">
+                        Run ID: sample_run_001...<br>
+                        Demo Created: 2026-02-03T12:43
+                    </div>
+                    <a href="https://wandb.ai/cesar-valdez-mcgill-university/geomancer-phate-labeled/runs/sample_run_001" target="_blank" class="card-link">
+                        View in W&B →
+                    </a>
+                </div>
+            </div>
+            <div class="card" data-name="pbmc_3k" data-label="cell_type" data-id="sample_run_002">
+                <div style="width: 100%; height: 200px; background: linear-gradient(45deg, #f0f0f0 25%, transparent 25%, transparent 75%, #f0f0f0 75%), linear-gradient(45deg, #f0f0f0 25%, transparent 25%, transparent 75%, #f0f0f0 75%); background-size: 20px 20px; background-position: 0 0, 10px 10px; display: flex; align-items: center; justify-content: center; color: #666; font-size: 14px;">
+                    📊 PHATE Visualization<br>
+                    <small>(Demo placeholder)</small>
+                </div>
+                <div class="card-body">
+                    <div class="card-title">pbmc_3k</div>
+                    <div class="card-subtitle">Label: cell_type</div>
+                    <div class="card-meta">
+                        Run ID: sample_run_002...<br>
+                        Demo Created: 2026-02-03T12:43
+                    </div>
+                    <a href="https://wandb.ai/cesar-valdez-mcgill-university/geomancer-phate-labeled/runs/sample_run_002" target="_blank" class="card-link">
+                        View in W&B →
+                    </a>
+                </div>
+            </div>
+            <div class="card" data-name="pbmc_4k" data-label="leiden_clusters" data-id="sample_run_003">
+                <div style="width: 100%; height: 200px; background: linear-gradient(45deg, #f0f0f0 25%, transparent 25%, transparent 75%, #f0f0f0 75%), linear-gradient(45deg, #f0f0f0 25%, transparent 25%, transparent 75%, #f0f0f0 75%); background-size: 20px 20px; background-position: 0 0, 10px 10px; display: flex; align-items: center; justify-content: center; color: #666; font-size: 14px;">
+                    📊 PHATE Visualization<br>
+                    <small>(Demo placeholder)</small>
+                </div>
+                <div class="card-body">
+                    <div class="card-title">pbmc_4k</div>
+                    <div class="card-subtitle">Label: leiden_clusters</div>
+                    <div class="card-meta">
+                        Run ID: sample_run_003...<br>
+                        Demo Created: 2026-02-03T12:43
+                    </div>
+                    <a href="https://wandb.ai/cesar-valdez-mcgill-university/geomancer-phate-labeled/runs/sample_run_003" target="_blank" class="card-link">
+                        View in W&B →
+                    </a>
+                </div>
+            </div>
+            <div class="card" data-name="pbmc_5k" data-label="cell_type" data-id="sample_run_004">
+                <div style="width: 100%; height: 200px; background: linear-gradient(45deg, #f0f0f0 25%, transparent 25%, transparent 75%, #f0f0f0 75%), linear-gradient(45deg, #f0f0f0 25%, transparent 25%, transparent 75%, #f0f0f0 75%); background-size: 20px 20px; background-position: 0 0, 10px 10px; display: flex; align-items: center; justify-content: center; color: #666; font-size: 14px;">
+                    📊 PHATE Visualization<br>
+                    <small>(Demo placeholder)</small>
+                </div>
+                <div class="card-body">
+                    <div class="card-title">pbmc_5k</div>
+                    <div class="card-subtitle">Label: cell_type</div>
+                    <div class="card-meta">
+                        Run ID: sample_run_004...<br>
+                        Demo Created: 2026-02-03T12:43
+                    </div>
+                    <a href="https://wandb.ai/cesar-valdez-mcgill-university/geomancer-phate-labeled/runs/sample_run_004" target="_blank" class="card-link">
+                        View in W&B →
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function filterCards() {
+            const searchTerm = document.getElementById('searchBox').value.toLowerCase();
+            const cards = document.querySelectorAll('.card');
+
+            cards.forEach(card => {
+                const name = card.dataset.name;
+                const label = card.dataset.label;
+                const id = card.dataset.id.toLowerCase();
+
+                const matches = name.includes(searchTerm) ||
+                               label.includes(searchTerm) ||
+                               id.includes(searchTerm);
+
+                card.style.display = matches ? 'block' : 'none';
+            });
+        }
+
+        // Demo functionality notification
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('W&B Gallery Demo loaded successfully!');
+            console.log('To create a gallery with real W&B data:');
+            console.log('1. Run: wandb login');
+            console.log('2. Run: python create_replit_wandb_gallery.py');
+        });
+    </script>
+</body>
+</html>
