@@ -235,58 +235,6 @@
 
         // Create dynamic color legend using actual extracted colors
         function createPlotLegend(runData, runInfo) {
-            const config = runData.config || {};
-            const runId = runData.run_id || runData.wandb_run_id;
-
-            // Get actual colors and categories from label_categories.json
-            const actualRunColors = runColors[runId] || runInfo;
-            const hasActualColors = actualRunColors && actualRunColors.colors && actualRunColors.colors.length > 0;
-
-            // Get actual categories from label_categories.json
-            let actualCategories = null;
-            if (window.labelCategories && window.labelCategories[runId]) {
-                actualCategories = window.labelCategories[runId].categories || [];
-            }
-
-            const actualLabelKey = config?.data?.value?.label_key || runData.label_key || 'N/A';
-            const numCategories = actualCategories ? actualCategories.length :
-                               (actualRunColors?.num_categories || (hasActualColors ? actualRunColors.colors.length : 5));
-
-            // Get label_key from config (what was actually used for coloring)
-            const actualLabelKey = config?.data?.value?.label_key || runData.label_key || 'N/A';
-            const numCategories = actualRunColors?.num_categories || (hasActualColors ? actualRunColors.colors.length : 5);
-
-            // Use actual extracted colors when available
-            const colorsToUse = hasActualColors ? actualRunColors.colors : ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd'];
-
-            // Generate appropriate category names
-            const categoryNames = generateCategoryNames(actualLabelKey, numCategories, runId);
-
-            // Build legend HTML
-            let legendInfo = [];
-            legendInfo.push(`<strong>Label Key:</strong> ${actualLabelKey.replace(/_/g, ' ')}`);
-            legendInfo.push(`<strong>Categories:</strong> ${numCategories} groups`);
-
-            // Add contextual description
-            const key = actualLabelKey.toLowerCase();
-            if (key.includes('time') || key.includes('day')) {
-                legendInfo.push(`<em>Temporal data - colors show time progression</em>`);
-            } else if (key.includes('stage') || key.includes('development')) {
-                legendInfo.push(`<em>Developmental data - colors show stages</em>`);
-            } else if (key.includes('cluster')) {
-                legendInfo.push(`<em>Unsupervised clusters - data-driven groups</em>`);
-            } else if (key.includes('type') || key.includes('class')) {
-                legendInfo.push(`<em>Categorical data - colors distinguish types/classes</em>`);
-            } else if (key.includes('region') || key.includes('tissue')) {
-                legendInfo.push(`<em>Spatial data - colors show anatomical regions</em>`);
-            }
-
-            // Create color examples with actual extracted colors
-            const maxExamples = Math.min(numCategories, 8);
-            let colorExamples = '';
-
-            for (let i = 0; i < maxExamples; i++) {
-                const color = colorsToUse[i % colorsToUse.length];
                 const name = categoryNames[i % categoryNames.length];
                 colorExamples += `
                     <div style="display: flex; align-items: center; gap: 8px; margin: 2px 0;">
